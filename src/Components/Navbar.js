@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import './Navbar.css';
+import "./Navbar.css";
 import { Button } from "./Button";
-
+import { Button2 } from "./Button2";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -11,26 +11,25 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-const showButton = () => {
+  const showButton = () => {
     if (window.innerWidth <= 960) {
-        setButton(false);
+      setButton(false);
     } else {
-        setButton(true);
+      setButton(true);
     }
-};
+  };
 
-useEffect(() => {
-    showButton()
-}, []);
+  useEffect(() => {
+    showButton();
+  }, []);
 
-window.addEventListener('resize', showButton);
+  window.addEventListener("resize", showButton);
 
   return (
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo" onClick=
-          {closeMobileMenu}>
+          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             TLF <i className="fas fa-utensils" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
@@ -44,7 +43,7 @@ window.addEventListener('resize', showButton);
             </li>
             <li className="nav-item">
               <Link
-                to="/get"
+                to="/favorites"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -53,24 +52,34 @@ window.addEventListener('resize', showButton);
             </li>
             <li className="nav-item">
               <Link
-                to="/map"
+                to="/delete"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
                 <i className="fas fa-map-marker-alt"></i>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="">
               <Link
-                to="/home"
+                to="/signup"
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
                 <i className="far fa-user"></i>
               </Link>
             </li>
+            <li className="">
+              <Link
+                to="/"
+                className="nav-links-mobile"
+                onClick={closeMobileMenu}
+              >
+                <i className="fas fa-sign-out-alt"></i>
+              </Link>
+            </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'><i className="far fa-user"></i></Button>} 
+          {button && <Button buttonStyle="btn--outline"></Button>}
+          {button && <Button2 buttonStyle="btn--outline"></Button2>}
         </div>
       </nav>
     </>
@@ -78,4 +87,5 @@ window.addEventListener('resize', showButton);
 }
 
 export default Navbar;
+
 

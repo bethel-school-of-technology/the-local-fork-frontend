@@ -67,7 +67,7 @@ export default class Login extends React.Component {
         tagline: this.state.tagline
     };
   
-    axios.post('http://localhost:5000/api/users/signup', userObject)
+    axios.post('http://localhost:5000/users/signup', userObject)
         .then((res) => {
             console.log(res.data)
         }).catch((error) => {

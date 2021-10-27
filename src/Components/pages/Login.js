@@ -1,68 +1,55 @@
-import React from "react";
 import axios from "axios";
+// import { useState, useEffect } from "react";
+import React, { useState } from "react";
+// import { Link } from "react-router-dom"
 
-export default class Login extends React.Component {
-constructor(props) {
-  super(props)
 
-  this.onChangeUserName = this.onChangeUserName.bind(this);
-  this.onChangeUserPassword = this.onChangeUserPassword.bind(this);
-  this.onSubmit = this.onSubmit.bind(this);
+const Login = () => {
+const [username, setUsername] = useState("");
+const [password, setPassword] = useState("");
 
-  this.state = {
-      username: '',
-      password: ''
-  }
+const signIn = (e) => {
+    e.preventDefault();
+
+    if (username !== '' && password !== '') {
+        const req = {
+            username,
+            password
+        };
+
+        axios.post('http://localhost:5000/users/login', req).then(result => {
+            const token = result.data;
+            localStorage.setItem("mytoken",JSON.stringify(token));
+            console.log(result)
+        });
+    }
+};
+
+// useEffect(() => {
+//     // storing input name
+//     localStorage.setItem("mytoken", JSON.stringify(token));
+//   }, [token]);
+
+
+return (<div>
+    <form onSubmit={ signIn }>
+        <h1>Sign In</h1>
+        <label>Username</label>
+        <input type='text' name='username' onChange={(e) => setUsername(e.target.value) }/>
+        <label>Password</label>
+        <input type='password' name='password' onChange={(e) => setPassword(e.target.value) }/>
+       {/* <Link to="/profile" > */}
+        <button>Sign in</button>
+        {/* </Link>   This is close to what I want but it breaks.  */ }
+        
+    </form>
+
+</div>);
+
 }
 
-onChangeUserName(e) {
-  this.setState({ username: e.target.value })
-}
 
-onChangeUserPassword(e) {
-  this.setState({ password: e.target.value })
-}
-
-onSubmit(e) {
-  e.preventDefault()
-
-  const userObject = {
-      username: this.state.username,
-      password: this.state.password
-  };
-
-  axios.post('http://localhost:5000/api/users/login', userObject)
-      .then((res) => {
-          console.log(res.data)
-      }).catch((error) => {
-          console.log(error)
-      });
-
-  this.setState({ username: '', password: '' })
-}
-
-
-render() {
-  return (
-      <div className="wrapper">
-          <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                  <label> UserName</label>
-                  <input type="text" value={this.state.username} onChange={this.onChangeUserName} className="form-control" />
-              </div>
-              <div className="form-group">
-                  <label>Password</label>
-                  <input type="text" value={this.state.password} onChange={this.onChangeUserPassword} className="form-control" />
-              </div>
-              <div className="form-group">
-                  <input type="submit" value="Login" className="btn btn-success btn-block" />
-              </div>
-          </form>
-      </div>
-  )
-}
-}
-
+export default Login;
 
 
 

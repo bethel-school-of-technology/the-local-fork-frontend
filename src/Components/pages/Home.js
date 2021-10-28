@@ -8,8 +8,9 @@ function Home() {
     
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/restaurant/addRes`).then(res => {
-        console.log(res);
+        axios.get(`http://localhost:5000/restaurant/Res1`).then(res => {
+            
+        console.log(res.data);
         setData(res.data)
 
         

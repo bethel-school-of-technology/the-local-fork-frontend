@@ -11,17 +11,17 @@ const Logout = ({
     onClick,
     buttonStyle,
     buttonSize,
- }) => {
+}) => {
     let history = useHistory();
-    
+
 
     const checkButtontStyle = STYLES.includes(buttonStyle)
-    ? buttonStyle
-    : STYLES[0];
+        ? buttonStyle
+        : STYLES[0];
 
-const checkButtontSize = SIZES.includes(buttonSize)
-    ? buttonSize
-    : SIZES[0];
+    const checkButtontSize = SIZES.includes(buttonSize)
+        ? buttonSize
+        : SIZES[0];
 
     const handleSubmit = () => {
         localStorage.removeItem("mytoken");
@@ -32,14 +32,13 @@ const checkButtontSize = SIZES.includes(buttonSize)
     return (
         <form onSubmit={handleSubmit}>
 
-            {/* <button type="submit">Logout</button> */}
-            <button    //This isn't right...
-                    className={`btn fas fa-sign-out-alt ${checkButtontStyle} ${checkButtontSize}`}
-                    onClick={onClick}
-                    type={type, "submit"}
-                >
-                    {children}
-                </button>
+            <button
+                className={`btn fas fa-sign-out-alt ${checkButtontStyle} ${checkButtontSize}`}
+                onClick={onClick}
+                type={type, "submit"}
+            >
+                {children}
+            </button>
         </form>
     )
 

@@ -5,7 +5,7 @@ import "./App.css";
 
 
 import Signup from "./Components/pages/SignUp";
-import Delete from "./Components/pages/Delete";
+import Map from "./Components/pages/Map";
 import Put from "./Components/pages/PersonPut";
 import Login from "./Components/pages/Login";
 import Home from "./Components/pages/Home";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/profile" exact component={Profile} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/Put" exact component={Put} />
-          <Route path="/Delete" exact component={Delete} />
+          <Route path="/Map" exact component={Map} />
           <Route path="/" exact component={Home} />
           <Route path="/favorites" exact component={Favorites} />
           <Route path="/logout" exact component={Logout} />

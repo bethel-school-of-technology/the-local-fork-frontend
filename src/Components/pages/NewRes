@@ -1,0 +1,114 @@
+export default class NewRes extends React.Component {
+  constructor(props) {
+    super(props)
+  
+    this.onChangeName = this.onChangeName.bind(this);
+    this.onChangeLo = this.onChangeLo.bind(this);
+    this.onChangeHours = this.onChangeHours.bind(this);
+    this.onChangeAvailability = this.onChangeAvailability.bind(this);
+    this.onChangeRating = this.onChangeRating.bind(this);
+    this.onChangeMenu = this.onChangeMenu.bind(this);
+    this.onChangeDeleted = this.onChangeDeleted.bind(this);
+   
+  
+    this.state = {
+          name: "",
+          location: "",
+          hours: "",
+          availability: "",
+          rating: "",
+          menu: "",
+          deleted:""
+    }//Need to contuine to update everything. 
+  }
+  
+  onChangeName(e) {
+    this.setState({ name: e.target.value })
+  }
+  
+  onChangeLo(e) {
+    this.setState({ Location: e.target.value })
+  }
+
+  onChangeHours(e) {
+    this.setState({ hours: e.target.value })
+  }
+
+  onChangeCity(e) {
+    this.setState({ city: e.target.value })
+  }
+
+  onChangeUserName(e) {
+    this.setState({ username: e.target.value })
+  }
+
+  onChangePassword(e) {
+    this.setState({ password: e.target.value })
+  }
+
+  onChangeTagline(e) {
+    this.setState({ tagline: e.target.value })
+  }
+  
+  onSubmit(e) {
+    e.preventDefault()
+  
+    const userObject = {
+       name: this.state.name,
+       location: this.state.location,
+        hours: this.state.hours,
+        city: this.state.city,
+        username: this.state.username,
+        password: this.state.password,
+        tagline: this.state.tagline
+    };
+  
+    axios.post('http://localhost:5000/api/users/signup', userObject)
+        .then((res) => {
+            console.log(res.data)
+        }).catch((error) => {
+            console.log(error)
+        });
+  
+    this.setState({ name:'', location:'', hours:'', city:'', username: '', password: '', tagline:'' })
+  }
+  
+  
+  render() {
+    return (
+        <div className="wrapper">
+            <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                    <label>  Name</label>
+                    <input type="text" value={this.state.name} onChange={this.onChangeName} className="form-control" />
+                </div>
+                <div className="form-group">
+                    <label>Location</label>
+                    <input type="text" value={this.state.location} onChange={this.onChangeLocation} className="form-control" />
+                </div>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="text" value={this.state.email} onChange={this.onChangeEmail} className="form-control" />
+                </div>
+                <div className="form-group">
+                    <label>City</label>
+                    <input type="text" value={this.state.city} onChange={this.onChangeCity} className="form-control" />
+                </div>
+                <div className="form-group">
+                    <label>UserName</label>
+                    <input type="text" value={this.state.username} onChange={this.onChangeUserName} className="form-control" />
+                </div> <div className="form-group">
+                    <label>Password</label>
+                    <input type="text" value={this.state.password} onChange={this.onChangePassword} className="form-control" />
+                </div> <div className="form-group">
+                    <label>Tagline</label>
+                    <input type="text" value={this.state.tagline} onChange={this.onChangeTagline} className="form-control" />
+                </div>
+                <div className="form-group">
+                    <input type="submit" value="Login" className="btn btn-success btn-block" />
+                </div>
+            </form>
+        </div>
+    )
+  }
+  }

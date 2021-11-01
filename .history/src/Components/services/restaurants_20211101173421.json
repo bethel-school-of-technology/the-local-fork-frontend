@@ -1,0 +1,111 @@
+[
+    {
+        "deleted": false,
+        "id": 1001,
+        "name": "Res2",
+        "location": "234 There Street",
+        "hours": 24,
+        "rating": 3,
+        "reviews": [
+            {
+                "username": "Mongo",
+                "review": "review 1 to test delete",
+                "_id": "6176f5491c7b455a9e03c76f"
+            },
+            {
+                "username": "Mongo",
+                "review": "hopefully this will be deleted and not the entire restaurant!",
+                "_id": "6176f6241c7b455a9e03c772"
+            }
+        ]
+    },
+    {
+        "deleted": false,
+        "id": 1002,
+        "name": "Res3",
+        "location": "11 Somewhere St. CA",
+        "hours": 2,
+        "rating": 1,
+        "reviews": [
+            {
+                "username": "Mongo",
+                "review": "hopefully this will be deleted and not the entire restaurant!",
+                "_id": "6176f7801c7b455a9e03c775"
+            },
+            {
+                "username": "Mongo",
+                "review": "hopefully this will be deleted and not the entire restaurant!",
+                "_id": "6176f7831c7b455a9e03c778"
+            }
+        ]
+    },
+    {
+        "deleted": false,
+        "id": 1003,
+        "name": "Res1",
+        "location": "There",
+        "hours": 2,
+        "rating": 5,
+        "reviews": [
+            {
+                "username": "Mongo",
+                "review": "second time solidifies it. do you work?",
+                "_id": "61771dc58a5b327de37db941"
+            },
+            {
+                "username": "Mongo",
+                "review": "and this as well",
+                "_id": "61771dcc8a5b327de37db944"
+            }
+        ]
+    },
+    {
+        "id": 1004,
+        "name": "Happy Happy ",
+        "location": "4534 great street ",
+        "hours": 4,
+        "rating": 4,
+        "deleted": false,
+        "reviews": [],
+        "__v": 0
+    },
+    {
+        "id": 1005,
+        "name": "again ",
+        "location": "some ",
+        "hours": 4,
+        "rating": 4,
+        "deleted": false,
+        "reviews": [],
+        "__v": 0
+    },
+    {
+        "id": 1006,
+        "name": "Danfo Bistro",
+        "location": "2 Alexander Rd, Ikoyi",
+        "hours": 12,
+        "deleted": false,
+        "rating": 5,
+        "coordinates": [{"lat": 6.456188, "lon":3.445563}],
+        "reviews": []
+    },
+    {
+        "id": 1007,
+        "name": "Sushiholic",
+        "location": "28 Admiralty Way, Lekki Phase I",
+        "hours": 24,
+        "rating": 5,
+        "deleted": false,
+        "coordinates": [{"lat": 6.447938,"lon": 3.473313}],
+        "reviews": []
+    },
+    {
+        "deleted": false,
+        "id": 1008,
+        "name": "Godaif Village",
+        "location": "Asmarina, 26B Turnbull Rd, Ikoyi",
+        "hours": 24,
+        "coordinates": [{"lat": 6.456812, "lon": 3.447312}],
+        "reviews": []
+    }
+]

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 
-export default class Delete extends React.Component {
+export default class Map extends React.Component {
     state = {
         id: 0,
     };

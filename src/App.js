@@ -13,6 +13,7 @@ import Profile from "./Components/pages/ProfilePage";
 import Favorites from "./Components/pages/Favorites";
 import Newres from "./Components/pages/Newres";
 
+import Logout from "./Components/pages/Logout";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/favorites" exact component={Favorites} />
           <Route path="/Res" exact component={Newres} />
+          <Route path="/logout" exact component={Logout} />
 
 
         </Switch>

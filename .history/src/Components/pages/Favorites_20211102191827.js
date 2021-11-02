@@ -1,7 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react/cjs/react.development";
-import axios from "axios";
 
 const colors = {
   orange: "#FFBA5A",
@@ -25,15 +24,9 @@ function App() {
     setHoverValue(undefined);
   };
 
-  axios.post('http://localhost:5000/review/addReview').then(result => {
-    //const token = result.data;
-    //localStorage.setItem("mytoken",JSON.stringify(token));
-    console.log(result)
-});
-
   return (
     <div style={styles.container}>
-      <h2>Don't be shy... Leave a rating!</h2>
+      <h2>Restaurant Ratings</h2>
       <div style={styles.stars}>
         {stars.map((_, index) => {
           return (
@@ -67,20 +60,6 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
-  textarea: {
-    border: "1px solid #a9a9a9",
-    borderRadius: 5,
-    width: 300,
-    margin: "20px 0",
-    minHeight: 100,
-    padding: 10
-  },
-  button: {
-    border: "1px solid #a9a9a9",
-    borderRadius: 5,
-    width: 300,
-    padding: 10
   },
 };
 

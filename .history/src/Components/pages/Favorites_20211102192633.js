@@ -1,7 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react/cjs/react.development";
-import axios from "axios";
 
 const colors = {
   orange: "#FFBA5A",
@@ -24,12 +23,6 @@ function App() {
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
-
-  axios.post('http://localhost:5000/review/addReview').then(result => {
-    //const token = result.data;
-    //localStorage.setItem("mytoken",JSON.stringify(token));
-    console.log(result)
-});
 
   return (
     <div style={styles.container}>

@@ -40,7 +40,7 @@ export default function App() {
       <h1> The Local Fork </h1>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={14}
+        zoom={12}
         center={center}
         options={options}
       >

@@ -30,6 +30,7 @@ export default function App() {
     googleMapsApiKey: "AIzaSyDZxLM9qBogixwiW2wuYWGqT2bUVWj5KEQ",
   });
 
+  //if this doesnt work try removing the React.
   const [selectedRes, setSelectedRes] = React.useState(null);
 
   if (loadError) return "Error loading maps";
@@ -40,7 +41,7 @@ export default function App() {
       <h1> The Local Fork </h1>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={14}
+        zoom={12}
         center={center}
         options={options}
       >
@@ -55,7 +56,7 @@ export default function App() {
               setSelectedRes(res);
             }}
             icon={{
-                url: '/fork-icom.png',
+                url: '/fork-icon.png',
                 scaledSize: new window.google.maps.Size(40, 40)
             }}
           />

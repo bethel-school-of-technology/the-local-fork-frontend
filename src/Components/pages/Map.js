@@ -5,13 +5,14 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import Geocode from "react-geocode";
 
 import mapStyles from "../services/mapStyles";
 import restaurants from "../services/restaurants.json";
 
 const mapContainerStyle = {
   width: "100vw",
-  height: "100vh",
+  height: "90vh",
 };
 
 const center = {

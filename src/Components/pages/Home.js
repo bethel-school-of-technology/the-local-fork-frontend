@@ -1,25 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import SearchBar from '../searchbar';
+import DisplaySearch from './DisplaySearch';
+
+function Home({restSearchData}) {
+
+    const [data, setData] = useState([]);
 
 
-function Home() {
+    console.log(restSearchData)
 
-    const [data, setData] = useState( []);
-    
+
+
 
     useEffect(() => {
         axios.get(`http://localhost:5000/restaurant/addRes`).then(res => {
-        console.log(res);
-        setData(res.data)
+            console.log(res);
+            setData(res.data)
 
-        
-    });
+
+        });
     }, [])
 
-        return (  <ul>
-            <li></li>
-            <li>{data.name}</li>
-            {/* {data.map(d => (
+    return (
+        <div>
+            <ul>
+                <li></li>
+                <li>{data.name}</li>
+{/* 
+                {data.map(d => (
                 <div>
                     <li>{data.name}</li>
                     <li>{d.location}</li>
@@ -31,9 +40,21 @@ function Home() {
                 </div>
                
             ))}  */}
-       
-                </ul>
-        );
+
+            {/* {!restSearchData.length === 0 ?  */}
+            {restSearchData.map((data, i) => (
+                <div>
+                    {data.name}
+                    
+                </div>
+            )) 
+            //  <div>hi</div>   
+        }
+
+            </ul>
+    
+        </div>
+    );
 
 }
 
@@ -82,6 +103,6 @@ export default Home
 //         return  <ul>
 //             <li><h1>Home Page</h1></li>
 //             </ul>
-        
+
 //     }
 // }

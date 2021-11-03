@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from '../searchbar';
+import DisplaySearch from './DisplaySearch';
 
-function Home() {
+function Home({restSearchData}) {
 
     const [data, setData] = useState([]);
+
+
+    console.log(restSearchData)
+
+
 
 
     useEffect(() => {
@@ -21,7 +27,8 @@ function Home() {
             <ul>
                 <li></li>
                 <li>{data.name}</li>
-                {/* {data.map(d => (
+{/* 
+                {data.map(d => (
                 <div>
                     <li>{data.name}</li>
                     <li>{d.location}</li>
@@ -34,8 +41,18 @@ function Home() {
                
             ))}  */}
 
+            {/* {!restSearchData.length === 0 ?  */}
+            {restSearchData.map((data, i) => (
+                <div>
+                    {data.name}
+                    
+                </div>
+            )) 
+            //  <div>hi</div>   
+        }
+
             </ul>
-        
+    
         </div>
     );
 

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Components/Navbar";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./App.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import Signup from "./Components/pages/SignUp";
@@ -11,7 +12,12 @@ import Login from "./Components/pages/Login";
 import Home from "./Components/pages/Home";
 import Profile from "./Components/pages/ProfilePage";
 import Favorites from "./Components/pages/Favorites";
+import Newres from "./Components/pages/NewRes";
+
 import Logout from "./Components/pages/Logout";
+import Restaurants from "./Components/pages/Restaurants";
+
+
 
 
 function App() {
@@ -28,7 +34,11 @@ function App() {
           <Route path="/Map" exact component={Map} />
           <Route path="/" exact component={Home} />
           <Route path="/favorites" exact component={Favorites} />
+          <Route path="/NewR" exact component={Newres}/>
+          <Route path="/Reviews" exact component={Restaurants}/>
+
           <Route path="/logout" exact component={Logout} />
+
 
 
         </Switch>

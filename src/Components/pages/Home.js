@@ -1,7 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Card from "react-bootstrap/Card";
+// import Button from 'react-bootstrap/Button';
+import CardGroup from "react-bootstrap/CardGroup";
+// import { getNodeText, getRoles } from "@testing-library/dom";
 
 const Res = "http://localhost:5000/restaurant/";
+const Search = "http://localhost:5000/restaurant/search";
 
 export default function Home() {
   const [post, setPost] = useState(null);
@@ -13,142 +18,74 @@ export default function Home() {
     axios.get(Res).then((response) => {
       setPost(response.data.restaurants);
       //   setName(response)
-        // console.log(response.data.restaurants)
     });
   }, []);
 
+  const getRes = (name) => {
+    console.log(name);
+
+    axios.get(`${Res}/${name}`).then((response) => {
+      console.log(response);
+      localStorage.setItem("restourantData", JSON.stringify(response.data));
+    });
+  };
+
+  const goRes = () => {
+    window.location.href = "http://localhost:3000/reviews";
+  };
+
+  // const both = () => {
+  // getRes(); goRes();
+  // };
+
   if (!post) return null;
- 
-  const currentRests = post.map((rest, id) => (
+  console.log(post);
+
+  const currentReviews = post[0].reviews.map((rest, id) => (
     <li key={id}>
-      <h1>{rest.name}</h1>
-      <h1>{rest.review}</h1>
-      <h3>{rest.hours}</h3>
+      {rest.username}
+      {rest.review}
     </li>
   ));
 
-  return (
-    <ul>
-      {currentRests}
-      {/* <li>{name}</li> */}
-      {/* <li>{post.location}</li>
-      <li>{post.hours}</li>
-      <li>{post.rating}</li> */}
+  const currentRests = post.map((rest, id) => (
+    <ul key={id}>
+      <Card>
+        <Card.Img
+          variant="top"
+          src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
+          style={{ width: "12rem" }}
+        />
+        <Card.Body>
+          <Card.Title>{rest.name}</Card.Title>
+          <Card.Text></Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          <button onClick={() => getRes(rest.name)}>Click me</button>
+          {/* <button  onClick={() => getRes(rest.name),goRes} >Click me</button> */}
+
+          <button onClick={goRes}>Click me</button>
+        </Card.Footer>
+      </Card>
+
+      {/* <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="holder.js/100px180" />
+  <Card.Body>
+    <Card.Title>{rest.name}</Card.Title>
+    <Card.Text>
+    {currentReviews}
+    </Card.Text>
+    <Button variant="primary">Go somewhere</Button>
+  </Card.Body>
+</Card> */}
     </ul>
-  );
+  ));
+
+  //This was working without the goRes..
+  //
+  {
+    /* <button  onClick={both}>Click me</button> */
+  }
+
+  return <ul>{currentRests}</ul>;
 }
-
-//The main code Ive been working on.
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-
-// function Home() {
-
-//     const [data, setData] = useState( []);
-
-//     useEffect(() => {
-//         axios.get(`http://localhost:5000/restaurant/Res2`).then(data => {
-
-//         console.log(data);
-//         setData(data)
-//     });
-//     }, [])
-
-//         return (  <ul>
-//             <li>Hello!</li>
-//             <li>{data.name}</li>
-//             <li></li>
-//             {/* {data.map(d => (
-//                 <div>
-//                     <li>{data.name}</li>
-//                     <li>{d.location}</li>
-//                     <li>{d.hours}</li>
-//                     <li>{data.availability}</li>
-//                     <li>{data.rating}</li>
-//                     <li>{data.menu}</li>
-//                     <li>{data.deleted}</li>
-//                 </div>
-
-//             ))}  */}
-
-//                 </ul>
-//         );
-
-// }
-// export default Home
-
-// // From the office hours.
-// import React, { useState, useEffect } from "react";
-// // import axios from 'axios';
-
-// function Home() {
-//   const [data, setData] = useState([]);
-
-//   useEffect(() => {
-//     const resData = JSON.stringify(data);
-//     console.log(resData.Restaurant);
-//     setData(resData.Restaurant);
-//   }, []);
-
-//   return (
-//     <ul>
-//       <h1>Welcome!</h1>
-//       {/* <h2>This is {data.name} Page</h2> */}
-//       {/* <div>
-//         <li>First Name:   {data.firstname}</li>
-//         <li>Last Name:   {data.lastname}</li>
-//         <li>City:   {data.city}</li>
-//         <li>Tagline:  {data.tagline}</li>
-//         <li>Username:   {data.username}</li>
-//       </div> */}
-//     </ul>
-//   );
-// }
-// export default Home;
-
-// import React from 'react';
-// // import axios from 'axios';
-
-// export default class Home extends React.Component {
-//     state = {
-//         // persons: []
-//     }
-
-//     // componentDidMount() {
-//     //     axios.get(`https://jsonplaceholder.typicode.com/users`).then(res => {
-//     //     console.log(res);
-//     //     this.setState({persons: res.data });
-//     // });
-//     // }
-
-//     render() {
-//         return  <ul>
-//             <li><h1>Home Page</h1></li>
-//             </ul>
-
-//     }
-// }
-
-// import React from 'react';
-// import axios from 'axios';
-
-// export default class Home extends React.Component {
-//     state = {
-//       name: []
-//     }
-
-//     componentDidMount() {
-//         axios.get(`http://localhost:5000/restaurant/resources`).then(res => {
-//         console.log(res);
-//         this.setState({name: res.data });
-//     });
-//     }
-
-//     render() {
-//         return  <ul>
-//             <li><h1>Home Page</h1></li>
-//             <li>{}</li>
-//             </ul>
-
-//     }
-// }

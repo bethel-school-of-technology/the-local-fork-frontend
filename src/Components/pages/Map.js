@@ -6,24 +6,32 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import Geocode from "react-geocode";
 
-// import usePlacesAutocomplete, {
-//   getGeocode,
-//   getLatLng,
-// } from 'use-places-autocomplete'
-// import {Combobox} from '@reach/combobox'
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from "use-places-autocomplete";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption,
+} from "@reach/combobox";
 import mapStyles from "../services/mapStyles";
+import "../../../src/index.css";
+
 // import restaurants from "../services/restaurants.json";
 
+const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
   height: "90vh",
 };
 
 const center = {
-  lat: 46.595806,
-  lng: -112.027031,
+  lat: 6.44725,
+  lng: 3.47026,
 };
 
 const options = {
@@ -35,6 +43,7 @@ const options = {
 export default function App() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyDZxLM9qBogixwiW2wuYWGqT2bUVWj5KEQ",
+    libraries,
   });
 
   const Res = "http://localhost:5000/restaurant/";
@@ -80,9 +89,19 @@ export default function App() {
   //   )
   // })
 
+  //const bounds  = new google.maps.LatLngBounds();
+
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
+    //ADDED TWO LINES BELOW FOR 'BOUNDS'
+    // const bounds = new window.google.maps.LatLngBounds();
+    // map.fitBounds(bounds);
     mapRef.current = map;
+  }, []);
+
+  const panTo = React.useCallback(({ lat, lng }) => {
+    mapRef.current.panTo({ lat, lng });
+    mapRef.current.setZoom(14);
   }, []);
 
   if (loadError) return "Error loading maps";
@@ -91,6 +110,10 @@ export default function App() {
   return (
     <div>
       <h1> The Local Fork </h1>
+
+      <Search panTo={panTo} />
+      <Locate panTo={panTo} />
+
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={14}
@@ -134,6 +157,80 @@ export default function App() {
         )}
         ;
       </GoogleMap>
+    </div>
+  );
+}
+
+//THIS FUNCTION ZOOMS IN ON THE USERS CURRENT LOCATION
+function Locate({ panTo }) {
+  return (
+    <button
+      className="locate"
+      onClick={() => {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            panTo({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            })
+          },
+          () => null
+        );
+      }}
+    >
+      <img src="compass.png" alt="compass" />
+    </button>
+  );
+}
+
+//THIS FUNCTION IS FOR THE GOOGLE PLACES API
+function Search({ panTo }) {
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions,
+  } = usePlacesAutocomplete({
+    requestOptions: {
+      location: { lat: () => 6.44725, lng: () => 3.47026 },
+      radius: 200 * 1000,
+    },
+  });
+
+  return (
+    <div className="search">
+      <Combobox
+        onSelect={async (address) => {
+          setValue(address, false);
+          clearSuggestions();
+
+          try {
+            const results = await getGeocode({ address });
+            const { lat, lng } = await getLatLng(results[0]);
+            panTo({ lat, lng });
+          } catch (error) {
+            console.log("error");
+          }
+        }}
+      >
+        <ComboboxInput
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          disabled={!ready}
+          placeholder="Zoom in to your city"
+        />
+        <ComboboxPopover>
+          <ComboboxList>
+            {status === "OK" &&
+              data.map(({ id, description }) => (
+                <ComboboxOption key={id} value={description} />
+              ))}
+          </ComboboxList>
+        </ComboboxPopover>
+      </Combobox>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 const Res = "http://localhost:5000/restaurant/";
-const Search = "http://localhost:5000/restaurant/search";
 
 export default function Home() {
   const [post, setPost] = useState(null);
@@ -20,11 +19,11 @@ export default function Home() {
 
   if (!post) return null;
 
-  const currentRests = post.map((rest, id) => id < 5 && (
+  const currentRests = post.map((rest, id) => (
     <li key={id}>
       <h1>{rest.name}</h1>
       {/* <h1>{rest.review}</h1> */}
-      <h3>{rest.location}</h3>
+      <h3>{rest.hours}</h3>
     </li>
   ));
 
@@ -36,9 +35,7 @@ export default function Home() {
       <li>{post.hours}</li>
       <li>{post.rating}</li> */}
     </ul>
-    
   );
-  
 }
 
 // import React from 'react';

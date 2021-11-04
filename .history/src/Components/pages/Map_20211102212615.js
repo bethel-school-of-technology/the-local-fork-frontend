@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import {
   GoogleMap,
@@ -7,13 +7,8 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 
-// import usePlacesAutocomplete, {
-//   getGeocode,
-//   getLatLng,
-// } from 'use-places-autocomplete'
-// import {Combobox} from '@reach/combobox'
 import mapStyles from "../services/mapStyles";
-// import restaurants from "../services/restaurants.json";
+import restaurants from "../services/restaurants.json";
 
 const mapContainerStyle = {
   width: "100vw",
@@ -36,53 +31,14 @@ export default function App() {
     googleMapsApiKey: "AIzaSyDZxLM9qBogixwiW2wuYWGqT2bUVWj5KEQ",
   });
 
-  const Res = "http://localhost:5000/restaurant/";
+  const Res = "http://localhost:5000/restaurant/"
 
-  // function displayRestaurantAround(){
-  //   return new Promise ((resolve, reject) => {
-  //     this.service.nearbySearch({
-  //       location: currentUserPosition,
-  //       radius: 5000,
-  //       types: [restaurant]
-  //     }, (res)=>{
-  //       resolve(res);
-  //     })
-  //   })
-  // }
-
-  const [allRests, setAllRests] = useState([]);
-  // const [lat, setLat] = useState([]);
-  // const [long, setLong] = useState([]);
-  // console.log(lat)
-  // console.log(long)
-
-  // const points = [lat, long]
   const [selectedRes, setSelectedRes] = useState(null);
-  //   console.log(allRests);
+  console.log(selectedRes);
 
-  useEffect(() => {
-    axios.get(Res).then((response) => {
-      console.log(response.data.restaurants);
-
-      setAllRests(response.data.restaurants);
-      // setLat(response.data.restaurants[0].coordinates[0]);
-      // setLong(response.data.restaurants[0].coordinates[1]);
-
-      // console.log(setLong);
-      // console.log(response.data.restaurants.coordinates);
-    });
-  }, []);
-
-  // const markerLoop = points.map((point, id)=> {
-  //   return (
-  //     // console.log(point)
-  //   )
-  // })
-
-  const mapRef = React.useRef();
-  const onMapLoad = React.useCallback((map) => {
-    mapRef.current = map;
-  }, []);
+  axios.get(Res).then(data => {
+      console.log(data)
+  })
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading maps";
@@ -95,12 +51,10 @@ export default function App() {
         zoom={14}
         center={center}
         options={options}
-        onLoad={onMapLoad}
-        //bounds
       >
-        {allRests.map((res) => (
+        {restaurants.map((res) => (
           <Marker
-            key={res._id}
+            key={res.id}
             position={{
               lat: res.coordinates[0],
               lng: res.coordinates[1],
@@ -114,6 +68,7 @@ export default function App() {
             }}
           />
         ))}
+
         {selectedRes && (
           <InfoWindow
             position={{
@@ -130,8 +85,8 @@ export default function App() {
               <h3>Opening hours: {selectedRes.hours}</h3>
             </div>
           </InfoWindow>
+
         )}
-        ;
       </GoogleMap>
     </div>
   );

@@ -10,8 +10,8 @@ const colors = {
 
 function App() {
   const stars = Array(5).fill(0);
-  const [currentValue, setCurrentValue] = useState(0);
-  const [hoverValue, setHoverValue] = useState(undefined);
+  const [currentValue, setCurrentValue] = React.useState(0);
+  const [hoverValue, setHoverValue] = React.useState(undefined);
 
   const handleClick = (value) => {
     setCurrentValue(value);

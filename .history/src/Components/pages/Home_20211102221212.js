@@ -20,7 +20,7 @@ export default function Home() {
 
   if (!post) return null;
 
-  const currentRests = post.map((rest, id) => id < 5 && (
+  const currentRests = post.map((rest, id) => (
     <li key={id}>
       <h1>{rest.name}</h1>
       {/* <h1>{rest.review}</h1> */}

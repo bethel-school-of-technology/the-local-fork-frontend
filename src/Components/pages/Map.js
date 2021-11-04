@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import Geocode from "react-geocode";
 
 // import usePlacesAutocomplete, {
 //   getGeocode,
@@ -17,7 +18,7 @@ import mapStyles from "../services/mapStyles";
 
 const mapContainerStyle = {
   width: "100vw",
-  height: "100vh",
+  height: "90vh",
 };
 
 const center = {

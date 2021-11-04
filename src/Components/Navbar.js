@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { Button } from "./Button";
 import { Button2 } from "./Button2";
+import SearchBar from "./searchbar";
 
-function Navbar() {
+function Navbar({handleSubmit, query, findRestaurant}) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -80,6 +81,8 @@ function Navbar() {
           </ul>
           {button && <Button buttonStyle="btn--outline"></Button>}
           {button && <Button2 buttonStyle="btn--outline"></Button2>}
+
+          <SearchBar handleSubmit={handleSubmit} query={query}  findRestaurant={findRestaurant}/>
         </div>
       </nav>
     </>

@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+// import Newres from "./Newres";
+// import { Component } from "react";
 
 
 
@@ -23,10 +25,10 @@ setData(resData.restaurants)
 //   if (!data) return null;
  
   const reView = reviewData.map((rest, id) => (
-    <li key={id}>
+    <ul key={id}>
     
-      <h1>{rest.review}</h1>
-    </li>
+     Review: "{rest.review}"
+    </ul>
   ));
 
 //   const currentReviews = post[0].reviews.map((rest, id ) => (
@@ -64,11 +66,13 @@ setData(resData.restaurants)
     <Card.Text>
    Rating {data.rating} stars
     </Card.Text>
+    {reView}
+    {/* {{Newres}} */}
     <Button type ="button"   variant="primary">Add a review?</Button>
   </Card.Body>
-  {reView}
+  
 </Card>
-
+ 
   );
 }
 export default Restaurants;

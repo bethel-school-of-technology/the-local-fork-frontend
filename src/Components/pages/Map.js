@@ -149,7 +149,7 @@ export default function App() {
             }}
           >
             <div>
-              <h2>{selectedRes.name}</h2>
+              <h2><a href="/restaurant/">{selectedRes.name}</a></h2>
               <h3>{selectedRes.location}</h3>
               <h3>Opening hours: {selectedRes.hours}</h3>
             </div>

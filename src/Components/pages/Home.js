@@ -56,15 +56,15 @@
 //   if (!post) return null;
 //   console.log(post);
 
-//   const currentReviews = post[0].reviews.map((rest, id) => (
-//     <li key={id}>
-//       {rest.username}
-//       {rest.review}
-//     </li>
-//   ));
+//   // const currentReviews = post[0].reviews.map((rest, id) => (
+//   //   <li key={id}>
+//   //     {rest.username}
+//   //     {rest.review}
+//   //   </li>
+//   // ));
 
 //   const currentRests = post.map((rest, id) => id < 3 && (
-//       <div class="col-lg-4 col-sm-6">
+//       <div className="col-lg-4 col-sm-6">
 //       <Card>
 //         <Card.Img
 //           variant="top"
@@ -76,7 +76,7 @@
 //           <Card.Text></Card.Text>
 //         </Card.Body>
 //         <Card.Footer>
-//           <button class="btn btn-primary bth-outline" onClick={() => getRes(rest.name)}>Click me</button>
+//           <button className="btn btn-primary bth-outline" onClick={() => getRes(rest.name)}>Click me</button>
 //           {/* <button  onClick={() => getRes(rest.name),goRes} >Click me</button> */}
 
 //           <button onClick={goRes}>Click me</button>
@@ -92,8 +92,62 @@
 //   return <div class="row">{currentRests}</div>;
 // }
 
-//Chads Search.
+// Chads Search.
 
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import Card from "react-bootstrap/Card";
+// // import SearchBar from '../searchbar';
+// // import DisplaySearch from './DisplaySearch';
+
+// function Home({ restSearchData, typing }) {
+//   const [data, setData] = useState([]);
+
+//   // console.log(restSearchData)
+
+//   useEffect(() => {
+//     // console.log(typing);
+
+//     axios.get(`http://localhost:5000/restaurant/addRes`).then((res) => {
+//       // console.log(res);
+//       setData(res.data);
+//     });
+//   }, []);
+
+//   //I need to try and copy thw above
+
+//   return (
+//    <div>
+//       {typing ? (
+//        <ul>
+//           {restSearchData.map((data, id) => (
+//             <div key={id}>
+
+//                 {data.name}
+
+//             </div>
+//           ))}
+//           <Card>
+//             <Card.Img
+//               variant="top"
+//               src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
+//               style={{ width: "12rem" }}
+//             />
+//             <Card.Body>
+//               <Card.Text>{data.name}</Card.Text>
+//             </Card.Body>
+//           </Card>
+//        </ul>
+//       ) : (
+//         <div>all rest</div>
+//       )}
+//    </div>
+//   );
+// }
+
+// export default Home;
+
+//The one We wired up
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
@@ -108,9 +162,10 @@ function Home({ restSearchData, typing }) {
   useEffect(() => {
     // console.log(typing);
 
-    axios.get(`http://localhost:5000/restaurant/addRes`).then((res) => {
+    axios.get(`http://localhost:5000/restaurant/`).then((res) => {
       // console.log(res);
       setData(res.data);
+      // console.log(data)
     });
   }, []);
 
@@ -118,42 +173,68 @@ function Home({ restSearchData, typing }) {
 
   return (
     <div>
-      {typing ? (
+      {typing ? ( 
         <ul>
           {restSearchData.map((data, id) => (
             <div key={id}>
               <Card>
-              <Card.Title>{data.name}</Card.Title>
-              <Card.Title>{data.location}</Card.Title>
+                <Card.Img
+                  variant="top"
+                  src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
+                  style={{ width: "12rem" }}
+                />
+                <Card.Body>
+                  <Card.Title>{data.name}</Card.Title>
+                  <Card.Title>{data.location}</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  {/* <button onClick={() => getRes(rest.name)}>Click me</button> */}
+                  {/* <button  onClick={() => getRes(rest.name),goRes} >Click me</button> */}
+
+                  {/* <button onClick={goRes}>Click me</button> */}
+                </Card.Footer>
               </Card>
             </div>
           ))}
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
-              style={{ width: "12rem" }}
-            />
-            <Card.Body>
-              <Card.Title>{data.name}</Card.Title>
-              <Card.Text></Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              {/* <button onClick={() => getRes(rest.name)}>Click me</button> */}
-              {/* <button  onClick={() => getRes(rest.name),goRes} >Click me</button> */}
-
-              {/* <button onClick={goRes}>Click me</button> */}
-            </Card.Footer>
-          </Card>
-
-          {/* {!restSearchData.length === 0 ?  */}
-          {/* {restSearchData.map((data, id) => <div>{data.name}</div>)} */}
         </ul>
       ) : (
-        <div>all rest</div>
+        <ul>
+          {restSearchData.map((data, id) =>  id < 3 &&(
+            <div key={id}>
+               <Card>
+                <Card.Img
+                  variant="top"
+                  src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
+                  style={{ width: "12rem" }}
+                />
+                <Card.Body>
+                  <Card.Title>{data.name}</Card.Title>
+                  <Card.Title>{data.location}</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  {/* <button onClick={() => getRes(rest.name)}>Click me</button> */}
+                  {/* <button  onClick={() => getRes(rest.name),goRes} >Click me</button> */}
+
+                  {/* <button onClick={goRes}>Click me</button> */}
+                </Card.Footer>
+              </Card>
+             
+            </div>
+          ))}
+         
+        </ul>
       )}
     </div>
   );
 }
 
 export default Home;
+
+{
+  /* {!restSearchData.length === 0 ?  */
+}
+{
+  /* {restSearchData.map((data, id) => <div>{data.name}</div>)} */
+}

@@ -5,7 +5,15 @@
 
 
 h1 {
-    background-color: red;
+    
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        color: blanchedalmond;
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+    
 
 }
 

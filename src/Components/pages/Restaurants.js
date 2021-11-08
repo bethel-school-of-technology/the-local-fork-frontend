@@ -10,13 +10,13 @@ import Button from 'react-bootstrap/Button'
 function Restaurants() {
   const [reviewData, setreviewData] = useState([]);
   const [data, setData] = useState([]);
-  console.log(data)
+  // console.log(data)
 
   useEffect(() => {
 
 const resData = JSON.parse(localStorage.getItem("restourantData"));
 console.log(resData.restaurants)
-setreviewData(resData.restaurants.reviews)
+setreviewData(resData.restaurants)
 setData(resData.restaurants)
   }, []);
 

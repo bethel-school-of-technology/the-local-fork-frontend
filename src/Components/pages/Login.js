@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 // import { withRouter } from "react-router";
 // import { Link } from "react-router-dom"
-
+import "../Login.css";
 
 const Login = ({ history }) => {
   const [username, setUsername] = useState("");
@@ -35,24 +35,37 @@ const Login = ({ history }) => {
   //   }, [token]);
 
   return (
-    <div>
+    <div className="login">
+      {/* <div><img className="foodimage" src="https://the-local-fork.s3.us-east-2.amazonaws.com/food.svg" alt=""/></div>  */}
       <form onSubmit={signIn}>
-        <h1>Sign In</h1>
-        <label>Username</label>
+        <h1 className="welcome">WELCOME</h1>
+        <br />
+        <br />
+        <label>Username:</label>
+        <br />
         <input
+          className="textfield"
           type="text"
           name="username"
+          placeholder="Enter your username"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label>Password</label>
+        <label>Password:</label>
+        
         <input
+          className="textfield"
           type="password"
           name="password"
+          placeholder="Enter your password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <br />
         {/* <Link to="/profile" > */}
-        <button>Sign in</button>
+        <button className="submit">Sign in</button>
         {/* </Link>   This is close to what I want but it breaks.  */}
+        <div className="signuplink">
+          Not a member? <a href="/signup">Sign up</a>{" "}
+        </div>
       </form>
     </div>
   );

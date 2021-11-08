@@ -110,7 +110,7 @@ export default function App() {
 
   return (
     <div>
-      <h1> The Local Fork </h1>
+      {/* <h1> The Local Fork </h1> */}
 
       <Search panTo={panTo} />
       <Locate panTo={panTo} />
@@ -139,6 +139,7 @@ export default function App() {
             }}
           />
         ))}
+        {/* THIS RENDERS TO INFORMATION WINDOW WHEN A PIN IS CLICKED */}
         {selectedRes && (
           <InfoWindow
             position={{
@@ -150,9 +151,10 @@ export default function App() {
             }}
           >
             <div>
-              <h2><a href="/restaurant/">{selectedRes.name}</a></h2>
-              <h3>{selectedRes.location}</h3>
-              <h3>Opening hours: {selectedRes.hours}</h3>
+              <h2>{selectedRes.name}</h2>
+              <p>{selectedRes.rating}</p>
+              <p>{selectedRes.location}</p>
+              <img className="resImage" src="https://the-local-fork.s3.us-east-2.amazonaws.com/godaifLogo.png" alt=""/>
             </div>
           </InfoWindow>
         )}
@@ -173,13 +175,13 @@ function Locate({ panTo }) {
             panTo({
               lat: position.coords.latitude,
               lng: position.coords.longitude,
-            })
+            });
           },
           () => null
         );
       }}
     >
-      <img src="compass.png" alt="compass" />
+      <img className="compass" src="compass.png" alt="compass" />
     </button>
   );
 }
@@ -216,6 +218,7 @@ function Search({ panTo }) {
         }}
       >
         <ComboboxInput
+          className="zoomcity"
           value={value}
           onChange={(e) => {
             setValue(e.target.value);

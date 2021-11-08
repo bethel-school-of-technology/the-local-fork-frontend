@@ -53,7 +53,7 @@ function App() {
   const handleSubmit = (e)=> {
       e.preventDefault();
       axios.post(url, {query: query}).then(response => {
-          // console.log(response);
+          console.log(response);
           setSearchResults(response.data);
 
           if (query === "") {

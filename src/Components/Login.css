@@ -1,16 +1,13 @@
 body {
+    margin: 0;
     padding: 0;
     font-family: Hiragino Mincho ProN;
-    background: linear-gradient(100deg,  #B9BCA5,#425B5F);
+    background: linear-gradient(100deg,  #dde0c6,#66888d);
     height: 100vh;
     overflow: hidden;
 }
 
 .login {
-    /* display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 7rem; */
-
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,14 +19,6 @@ body {
     border-radius: 20px;
 }
 
-/* .login h1 {
-    text-align: center;
-    left: 35%;
-    color: white;
-    padding: 0 0 20px 0;
-    border-bottom: 1px solid silver;
-} */
-
 .login form {
     padding: 0px 40px;
     box-sizing: border-box;
@@ -37,14 +26,25 @@ body {
 
 form .textfield {
     position: relative;
-    border-bottom: 2px solid #adadaa;
-    width: 100%;
+    /* border-bottom: 2px solid #adadaa; */
+    width: 300px;
     margin: 30px 0;
     height: 50px;
-    padding: 0 5px;
+    /* padding: 0 5px; */
+    padding: 14px 10px;
     font-size: 16px;
+    transition: .25s;
+    border-radius: 25px;
+
+    background: none;
+    text-align: center;
     border: none;
-    transition: .5s;
+    display: block;
+    border: 2px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
     
 }
 
@@ -54,16 +54,35 @@ form .textfield {
 
 .login label {
     font-size: 30px;
+
+    /* position: absolute;
+    top: 50%;
+    left: 5px;
+    color: violet;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .25s; */
+    
 }
 
-form .textfield input:focus ~ label,
-form .textfield input:valid ~ label{
+/* this can be removed, making the textarea bigger when clicked */
+form .textfield[type='text']:focus,
+form .textfield[type='password']:focus {
+    color: white;
+    width: 400px;
+    border-color: #2ecc71;
+    font-size: 20px;
+}
+
+
+form .textfield[type='text']:focus ~ label, form .textfield[type='text']:valid ~ label{
     top: -5px;
-    color: #425B5F;
+    color: violet;
 }
 
 button.submit {
-    width: 100%;
+    width: 300px;
     height: 50px;
     border: 1px solid;
     background: #B9BCA5;
@@ -75,9 +94,9 @@ button.submit {
 }
 
 button.submit:hover{
-    border-color:#B9BCA5;
+    background-color:#2ecc71;
     border-width: 5px;
-    transition: .5s;
+    transition: .25s;
 }
 
 .signuplink {
@@ -92,6 +111,10 @@ button.submit:hover{
     color: #B9BCA5;
 }
 
+.signuplink :hover{
+    color: white;
+}
+
 .welcome {
     font-family: 'Beth Ellen', cursive;
     text-align: center;
@@ -99,33 +122,5 @@ button.submit:hover{
     padding: 0px 0px 10px 0px;
     border-bottom: 1px solid silver;
     left: 30%;
+    /* font-weight: 500; */
 }
-
-/* .foodimage{
-    display: flex;
-    position: fixed;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    width: 500px;
-    justify-content: flex-end;
-    align-items: left;
-} */
-
-/* @media screen and (max-width: 1050px) {
-    .login{
-        grid-gap: 5rem;
-    }
-}
-
-@media screen and (max-width:1000px) {
-    form{
-        width: 290px;
-    }
-
-    .welcome{
-        font-size: 2.4rem;
-        margin: 8px 0;
-    }
-} */

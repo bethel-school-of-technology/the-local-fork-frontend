@@ -13,14 +13,13 @@ function Profile() {
 
   return (
     <ul>
-      <h1>Welcome!</h1>
-      <h2>This is {data.username} Page</h2>
+      <h2>This is {data.username}'s Page</h2>
       <div>
-        <li>First Name:   {data.firstname}</li>
-        <li>Last Name:   {data.lastname}</li>
-        <li>City:   {data.city}</li>
-        <li>Tagline:  {data.tagline}</li>
-        <li>Username:   {data.username}</li>
+        <p>{data.firstname} {data.lastname}</p>
+        {/* <li>Last Name:   {data.lastname}</li> */}
+        <p>{data.city}</p>
+        <p>{data.tagline}</p>
+        {/* <li>{data.username}</li> */}
       </div>
     </ul>
   );

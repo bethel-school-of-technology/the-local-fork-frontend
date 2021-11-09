@@ -4,6 +4,8 @@ import React, { useState } from "react";
 // import { withRouter } from "react-router";
 // import { Link } from "react-router-dom"
 import "../Login.css";
+import 'bootstrap/dist/css/bootstrap.css'
+import Button from 'react-bootstrap/Button'
 
 const Login = ({ history }) => {
   const [username, setUsername] = useState("");
@@ -41,27 +43,26 @@ const Login = ({ history }) => {
         <h1 className="welcome">WELCOME</h1>
         <br />
         <br />
-        <label>Username:</label>
+        {/* <label>Username:</label> */}
         <br />
         <input
           className="textfield"
           type="text"
           name="username"
-          placeholder="Enter your username"
+          placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label>Password:</label>
+        {/* <label>Password:</label> */}
         
         <input
           className="textfield"
           type="password"
           name="password"
-          placeholder="Enter your password"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br />
         {/* <Link to="/profile" > */}
-        <button className="submit">Sign in</button>
+        <Button type='submit' className="submit">Sign in</Button>
         {/* </Link>   This is close to what I want but it breaks.  */}
         <div className="signuplink">
           Not a member? <a href="/signup">Sign up</a>{" "}

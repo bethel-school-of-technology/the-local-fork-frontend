@@ -5,37 +5,22 @@
 
 
 h1 {
-    
-<<<<<<< HEAD
     position: absolute;
     left: 1rem;
     color: blue;
     z-index: 10;
     padding: 0;
-=======
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        color: blanchedalmond;
-        z-index: 10;
-        margin: 0;
-        padding: 0;
-    
->>>>>>> 4a86a42029db5838dc95e1d0c4fc571b3eefe69f
-
 }
 
-.dialog {
+/* .dialog {
     background-color: brown;
-}
+} */
 
 
-.gm-style-iwgm-style-iw-c{
+/* .gm-style-iwgm-style-iw-c{
     background-color: blueviolet;
 
-}
-
-
+} */
 
 .search {
     position: absolute;

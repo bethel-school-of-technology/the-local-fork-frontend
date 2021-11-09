@@ -1,0 +1,28 @@
+.InfoWindow > h3 {
+    background-color:red;
+}
+
+
+
+h1 {
+    
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        color: blanchedalmond;
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+    
+
+}
+
+.dialog {
+    background-color: brown;
+}
+
+
+.gm-style-iwgm-style-iw-c{
+    background-color: blueviolet;
+
+}

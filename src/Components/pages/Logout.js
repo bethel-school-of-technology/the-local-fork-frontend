@@ -35,8 +35,7 @@ const Logout = ({
             <button
                 className={`btn fas fa-sign-out-alt ${checkButtontStyle} ${checkButtontSize}`}
                 onClick={onClick}
-                type={type="submit"}
-            >
+                type={type="submit"}>
                 {children}
             </button>
         </form>

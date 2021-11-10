@@ -36,7 +36,7 @@
 //   };
 
 //   const goRes = () => {
-//     window.location.href = "http://localhost:3000/reviews";
+//     window.location.href = "http://localhost:3000/Restaurants";
 //   };
 
 // // const Example = () => {
@@ -149,12 +149,14 @@
 
 //The one We wired up
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
+
 // import SearchBar from '../searchbar';
 // import DisplaySearch from './DisplaySearch';
 
-function Home({ restSearchData, typing }) {
+function Home({ restSearchData, typing, history }) {
   const [data, setData] = useState([]);
 
   // console.log(restSearchData)
@@ -171,13 +173,23 @@ function Home({ restSearchData, typing }) {
 
   //I need to try and copy thw above
 
+  // const getRes = (name) => {
+  //       console.log(name); 
+  //       history.push("/Restaurants" + name);
+    
+  //     //   // axios.get(`${Res}/${name}`).then((response) => {
+  //     //   //   console.log(response);
+  //     //   //   localStorage.setItem("restourantData", JSON.stringify(response.data));
+  //     //   // });
+  //     };
+
   return (
-    <div>
+    <div >
       {typing ? ( 
-        <ul>
+        <div >
           {restSearchData.map((data, id) => (
-            <div key={id}>
-              <Card>
+            <div key={id} className="col-lg-3 col-sm-6">
+              <Card >
                 <Card.Img
                   variant="top"
                   src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
@@ -185,23 +197,22 @@ function Home({ restSearchData, typing }) {
                 />
                 <Card.Body>
                   <Card.Title>{data.name}</Card.Title>
-                  <Card.Title>{data.location}</Card.Title>
-                  <Card.Text></Card.Text>
+                  <Card.Text>{data.location}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
                   {/* <button onClick={() => getRes(rest.name)}>Click me</button> */}
                   {/* <button  onClick={() => getRes(rest.name),goRes} >Click me</button> */}
-
+                  <Link to={`/Restaurants/${data.name}`}>View more</Link>
                   {/* <button onClick={goRes}>Click me</button> */}
                 </Card.Footer>
               </Card>
             </div>
           ))}
-        </ul>
+        </div>
       ) : (
-        <ul>
+        <div>
           {restSearchData.map((data, id) =>  id < 3 &&(
-            <div key={id}>
+            <div key={id} className="col-lg-3 col-sm-6">
                <Card>
                 <Card.Img
                   variant="top"
@@ -210,13 +221,12 @@ function Home({ restSearchData, typing }) {
                 />
                 <Card.Body>
                   <Card.Title>{data.name}</Card.Title>
-                  <Card.Title>{data.location}</Card.Title>
-                  <Card.Text></Card.Text>
+                  <Card.Text>{data.location}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  {/* <button onClick={() => getRes(rest.name)}>Click me</button> */}
+                  {/* <button onClick={() => getRes(data.name)}>Click me</button> */}
                   {/* <button  onClick={() => getRes(rest.name),goRes} >Click me</button> */}
-
+            <Link to={`/Restaurants/${data.name}`}>View more</Link>
                   {/* <button onClick={goRes}>Click me</button> */}
                 </Card.Footer>
               </Card>
@@ -224,7 +234,7 @@ function Home({ restSearchData, typing }) {
             </div>
           ))}
          
-        </ul>
+        </div>
       )}
     </div>
   );

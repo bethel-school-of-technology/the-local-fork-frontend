@@ -4,14 +4,38 @@ import React, { useState } from "react";
 // import { withRouter } from "react-router";
 // import { Link } from "react-router-dom"
 import "../Login.css";
-import 'bootstrap/dist/css/bootstrap.css'
-import Button from 'react-bootstrap/Button'
+import "bootstrap/dist/css/bootstrap.css";
+import Button from "react-bootstrap/Button";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+
+//create schema for yup 
+const schema = yup.object().shape({
+  username: yup.string().required(),
+  password: yup.string().required()
+})
+
+
+
+
 
 const Login = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = (e) => {
+
+  //yup
+  // const {errors} = useForm({
+  //   resolver: yupResolver(schema)
+  // });
+
+
+
+  // const signIn = (e) => {
+    //trying this out for yup, if it doesnt work delete lines 36-38,
+    const {signIn, errors} = (e) => {
+      resolver: yupResolver(schema);
     e.preventDefault();
 
     if (username !== "" && password !== "") {
@@ -19,12 +43,14 @@ const Login = ({ history }) => {
         username,
         password,
       };
+     
 
       axios.post("http://localhost:5000/users/login", req).then((result) => {
         const token = result.data;
+        console.log(result);
+        //if else
         localStorage.setItem("mytoken", JSON.stringify(token));
         history.push("/profile");
-        console.log(result);
       });
     } else {
       history.push("/login");
@@ -52,8 +78,9 @@ const Login = ({ history }) => {
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
+        {/* <p>{errors.username?.message}</p> */}
         {/* <label>Password:</label> */}
-        
+
         <input
           className="textfield"
           type="password"
@@ -61,8 +88,11 @@ const Login = ({ history }) => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p>{errors.password?.message}</p>
         {/* <Link to="/profile" > */}
-        <Button type='submit' className="submit">Sign in</Button>
+        <Button type="submit" className="submit">
+          Sign in
+        </Button>
         {/* </Link>   This is close to what I want but it breaks.  */}
         <div className="signuplink">
           Not a member? <a href="/signup">Sign up</a>{" "}

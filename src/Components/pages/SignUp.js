@@ -91,11 +91,11 @@ export default class Login extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <form onSubmit={this.onSubmit}>
+        <form className="form" onSubmit={this.onSubmit}>
           <h2 className="join">Join the Foodies</h2>
           
           <div className="form-group">
-            {/* <label> First Name</label> */}
+            <label> First Name</label>
             <input
               type="text"
               value={this.state.firstname}
@@ -105,7 +105,7 @@ export default class Login extends React.Component {
             />
           </div>
           <div className="form-group">
-            {/* <label>Last Name</label> */}
+            <label>Last Name</label>
             <input
               type="text"
               value={this.state.lastname}
@@ -168,7 +168,7 @@ export default class Login extends React.Component {
             <button
               type="submit"
               value="Login"
-              className="form-control"
+              className="form-input-btn"
             >
               Sign Up
             </button>

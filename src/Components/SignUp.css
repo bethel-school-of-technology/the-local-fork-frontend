@@ -1,4 +1,4 @@
-/* .wrapper {
+.wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6,7 +6,7 @@
   font-size: 30px;
   background: #425b5f;
   width: 600px;
-  height: 90vh;
+  /* height: 90vh; */
   border-radius: 20px;
   padding-top: 30px;
 }
@@ -19,7 +19,7 @@
 input.form-control {
   position: relative;
   margin: 30px 0;
-  height: 50px;
+  /* height: 50px; */
   padding: 14px 10px;
   font-size: 16px;
   transition: 0.25s;
@@ -65,4 +65,4 @@ button.form-control:hover{
     text-align: center;
     color: white;
     padding: 0px 0px 20px 0px;
-} */
+}

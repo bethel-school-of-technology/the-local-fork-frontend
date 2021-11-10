@@ -8,7 +8,7 @@ import "./App.css";
 
 import Signup from "./Components/pages/SignUp";
 import Map from "./Components/pages/Map";
-import Put from "./Components/pages/PersonPut";
+import Reviews from "./Components/pages/Reviews";
 import Login from "./Components/pages/Login";
 import Home from "./Components/pages/Home";
 import Profile from "./Components/pages/ProfilePage";
@@ -78,7 +78,7 @@ function App() {
           <Route path="/Login" exact component={Login} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/signup" exact component={Signup} />
-          <Route path="/Put" exact component={Put} />
+          <Route path="/Reviews" exact component={Reviews} />
           <Route path="/Map" exact component={Map} />
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/" exact>
@@ -86,13 +86,15 @@ function App() {
           </Route>
           <Route path="/favorites" exact component={Favorites} />
           {/* <Route path="/NewR" exact component={Newres}/> */}
-          <Route path="/Reviews" exact component={Restaurants}/>
+          <Route path="/Restaurants/:restaurantName" exact component={Restaurants}/> 
 
           <Route path="/logout" exact component={Logout} />
 
 
 
         </Switch>
+
+        
       </Router>
     </>
   );

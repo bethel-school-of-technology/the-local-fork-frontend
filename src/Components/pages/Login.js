@@ -11,10 +11,10 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 
 //create schema for yup 
-const schema = yup.object().shape({
-  username: yup.string().required(),
-  password: yup.string().required()
-})
+// const schema = yup.object().shape({
+//   username: yup.string().required(),
+//   password: yup.string().required()
+// })
 
 
 
@@ -32,10 +32,10 @@ const Login = ({ history }) => {
 
 
 
-  // const signIn = (e) => {
+  const signIn = (e) => {
     //trying this out for yup, if it doesnt work delete lines 36-38,
-    const {signIn, errors} = (e) => {
-      resolver: yupResolver(schema);
+    // const {signIn} = (e) => {
+      // resolver: yupResolver(schema);
     e.preventDefault();
 
     if (username !== "" && password !== "") {
@@ -88,7 +88,7 @@ const Login = ({ history }) => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <p>{errors.password?.message}</p>
+        {/* <p>{errors.password?.message}</p> */}
         {/* <Link to="/profile" > */}
         <Button type="submit" className="submit">
           Sign in

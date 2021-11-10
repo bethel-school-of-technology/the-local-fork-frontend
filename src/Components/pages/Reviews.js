@@ -57,17 +57,19 @@ function Reviews() {
 
   const [title, setTitle] = useState("");
   const [review, setReview] = useState("");
+  const [revId, setRevId] = useState("");
 //   const token ='mytoken'
-//   console.log(data)
+console.log(revId);
 
   useEffect(() => {
 
-    axios.get(`http://localhost:5000/review/review/617e82a3eaffff441598afd7`).then((res) => {
+    axios.get(`http://localhost:5000/review/review/${review._id}`).then((res) => {
       // console.log(res);
     //   setData(res.data.reviewData[0]);
     setTitle(res.data.reviewData[0].title);
     setReview(res.data.reviewData[0].review);
-      console.log(res.reviewData)
+    setRevId(res.data.reviewData[0]._id);
+      console.log(res.data.reviewData);
       
     });
   }, []);
@@ -104,7 +106,7 @@ function Reviews() {
         review: review, 
         title: title
       };
-      axios.put(`http://localhost:5000/review/updateReview/61853129f0503bc8655c0df9`,req )
+      axios.put(`http://localhost:5000/review/updateReview/${review._id}`,req )
   } 
  
   // const currentRe = data[0].reviews.map((data, id ) => (
@@ -152,20 +154,3 @@ function Reviews() {
   );
 }
 export default Reviews;
-
-
-
-
-//  const edit = () => {
-//       axios.post(`http://localhost:5000/review/updateReview/61853129f0503bc8655c0df9`)
-//   }
-
-
-{/* // axios.get(`http://localhost:5000/review/review/:resid`, {headers: {'Authorization': `token ${token}`}}).then((res) => {
-//     // console.log(res);
-//     setData(res.data);
-//     console.log(res.data)
-//   }).catch((error) => {
-//       console.error(error)
-//   });
-// }, []); */}

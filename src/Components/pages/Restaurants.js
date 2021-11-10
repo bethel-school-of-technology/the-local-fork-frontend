@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
 // import Newres from "./Newres";
 // import { Component } from "react";
 
@@ -11,17 +12,27 @@ import Button from 'react-bootstrap/Button'
 function Restaurants() {
   // const [reviewData, setreviewData] = useState([]);
   const [data, setData] = useState([]);
-  console.log(data)
+  //console.log(data)
   const { restaurantName } = useParams()
+  const [restId, setRestId] = useState("")
+  //console.log(restId)
+  const [reviewData, setReviewData] = useState([])
+  //console.log(reviewData);
   
 
   useEffect(() => {
-    console.log(restaurantName);
+    //console.log(restaurantName);
     axios.get(`http://localhost:5000/restaurant/${restaurantName}`).then((res) => {
-      // console.log(res);
+      //console.log(res);
       setData(res.data.data);
+      setRestId(res.data.data._id)
     
     });
+
+    axios.get(`http://localhost:5000/review/review/${restId}`).then((reviewDataFound)=>{
+      //console.log(reviewDataFound);
+      setReviewData(reviewDataFound.data.reviewData)
+    })
   }, [restaurantName]);
 
 // const resData = JSON.parse(localStorage.getItem("restourantData"));
@@ -87,8 +98,29 @@ function Restaurants() {
     {/* {{Newres}}  */}
     <Button type ="button"   variant="primary">Add a review?</Button>
   </Card.Body>
+
+  {reviewData.map((review, id)=>{
+  return (
+    <div>
+    <h3>{review.title}</h3>
+    <h5>{review.review}</h5>
+    <Link to={`/Reviews/${review._id}`}>Edit</Link>
+    </div>
+  )
+})}
   
 </Card>
+
+
+{/* {reviewData.map((review, id)=>{
+  return (
+    <div>
+    <h3>{review.title}</h3>
+    <h5>{review.review}</h5>
+    </div>
+  )
+})} */}
+
 </div>
   );
 }

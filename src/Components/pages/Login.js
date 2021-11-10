@@ -9,6 +9,7 @@ const Login = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+
   const signIn = (e) => {
     e.preventDefault();
 
@@ -20,9 +21,13 @@ const Login = ({ history }) => {
 
       axios.post("http://localhost:5000/users/login", req).then((result) => {
         const token = result.data;
+        console.log(result);
+        if (result === token ) {
+          
+        }
         localStorage.setItem("mytoken", JSON.stringify(token));
         history.push("/profile");
-        console.log(result);
+        
       });
     } else {
       history.push("/login");

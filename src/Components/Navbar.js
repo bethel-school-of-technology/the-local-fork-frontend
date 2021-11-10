@@ -31,7 +31,7 @@ function Navbar({handleSubmit, query, findRestaurant}) {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            TLF <i className="fas fa-utensils" />
+          <img className="navbar-logo" src="../TLFLogo.png" alt="Logo" style={{width: "60px"}}/>
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />

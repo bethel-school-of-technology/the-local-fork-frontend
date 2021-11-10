@@ -85,7 +85,7 @@ function App() {
             <Home restSearchData={searchResults} typing={isTyping}/>
           </Route>
           <Route path="/favorites" exact component={Favorites} />
-          <Route path="/NewR" exact component={Newres}/>
+          <Route path="/NewR/:restaurantName" exact component={Newres}/>
           <Route path="/Restaurants/:restaurantName" exact component={Restaurants}/> 
 
           <Route path="/logout" exact component={Logout} />

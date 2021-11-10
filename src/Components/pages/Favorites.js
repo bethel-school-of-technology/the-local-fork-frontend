@@ -12,6 +12,8 @@ function App() {
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+  //DELETE REVIEW
+  const [reviews, setReviews] = useState('');
 
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -24,6 +26,28 @@ function App() {
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
+
+
+
+  //DELETE REVIEW
+  // const onDelete = async (id) => {
+  //   await fetch(`http://localhost:500/review/delete/${id}`, {
+  //     method: 'DELETE'
+  //   }).then((res)=> {
+  //     if(res.status !== 200){
+  //       return
+  //     } else {
+  //       setReviews(reviews.filter((review)=>{
+  //         return review.id !==id;
+  //       }))
+  //     }
+  //   }).catch((err)=>{console.log(err)})
+  // }
+
+
+
+
+
 
   axios.post('http://localhost:5000/review/addReview').then(result => {
     //const token = result.data;
@@ -56,6 +80,13 @@ function App() {
           );
         })}
       </div>
+
+      
+
+
+
+
+
       <textarea placeholder="Leave a review" style={styles.textarea} />
       <button style={styles.button}>Submit</button>
     </div>
@@ -85,15 +116,3 @@ const styles = {
 };
 
 export default App;
-
-// export default class Favorites extends React.Component {
-//   render() {
-//     return (
-//       <ul>
-//         <li>
-//           <h1>User Favorites Page</h1>
-//         </li>
-//       </ul>
-//     );
-//   }
-//}

@@ -3,6 +3,21 @@ import axios from "axios";
 import React, { useState } from "react";
 // import { withRouter } from "react-router";
 // import { Link } from "react-router-dom"
+import "../Login.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Button from "react-bootstrap/Button";
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from 'yup';
+// import { useForm } from 'react-hook-form';
+
+//create schema for yup 
+// const schema = yup.object().shape({
+//   username: yup.string().required(),
+//   password: yup.string().required()
+// })
+
+
+
 
 
 const Login = ({ history }) => {
@@ -10,7 +25,17 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState("");
 
 
+  //yup
+  // const {errors} = useForm({
+  //   resolver: yupResolver(schema)
+  // });
+
+
+
   const signIn = (e) => {
+    //trying this out for yup, if it doesnt work delete lines 36-38,
+    // const {signIn} = (e) => {
+      // resolver: yupResolver(schema);
     e.preventDefault();
 
     if (username !== "" && password !== "") {
@@ -18,6 +43,7 @@ const Login = ({ history }) => {
         username,
         password,
       };
+     
 
       axios.post("http://localhost:5000/users/login", req).then((result) => {
         const token = result.data;
@@ -28,6 +54,9 @@ const Login = ({ history }) => {
         localStorage.setItem("mytoken", JSON.stringify(token));
         history.push("/profile");
         
+        //if else
+        localStorage.setItem("mytoken", JSON.stringify(token));
+        history.push("/profile");
       });
     } else {
       history.push("/login");
@@ -40,24 +69,40 @@ const Login = ({ history }) => {
   //   }, [token]);
 
   return (
-    <div>
+    <div className="login">
+      {/* <div><img className="foodimage" src="https://the-local-fork.s3.us-east-2.amazonaws.com/food.svg" alt=""/></div>  */}
       <form onSubmit={signIn}>
-        <h1>Sign In</h1>
-        <label>Username</label>
+        <h1 className="welcome">WELCOME</h1>
+        <br />
+        <br />
+        {/* <label>Username:</label> */}
+        <br />
         <input
+          className="textfield"
           type="text"
           name="username"
+          placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label>Password</label>
+        {/* <p>{errors.username?.message}</p> */}
+        {/* <label>Password:</label> */}
+
         <input
+          className="textfield"
           type="password"
           name="password"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        {/* <p>{errors.password?.message}</p> */}
         {/* <Link to="/profile" > */}
-        <button>Sign in</button>
+        <Button type="submit" className="submit">
+          Sign in
+        </Button>
         {/* </Link>   This is close to what I want but it breaks.  */}
+        <div className="signuplink">
+          Not a member? <a href="/signup">Sign up</a>{" "}
+        </div>
       </form>
     </div>
   );

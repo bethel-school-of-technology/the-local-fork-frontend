@@ -11,32 +11,42 @@ function Reviews() {
 
   const [title, setTitle] = useState("");
   const [review, setReview] = useState("");
-  //   const token ='mytoken'
-  //   console.log(data)
+  const [revId, setRevId] = useState("");
+//   const token ='mytoken'
+console.log(revId);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/review/review/617e82a3eaffff441598afd7`)
-      .then((res) => {
-        // console.log(res);
-        //   setData(res.data.reviewData[0]);
-        setTitle(res.data.reviewData[0].title);
-        setReview(res.data.reviewData[0].review);
-        console.log(res.reviewData);
-      });
+
+    axios.get(`http://localhost:5000/review/review/${revId}`).then((res) => {
+      // console.log(res);
+    //   setData(res.data.reviewData[0]);
+    setTitle(res.data.reviewData[0].title);
+    setReview(res.data.reviewData[0].review);
+    setRevId(res.data.reviewData[0]._id);
+      console.log(res.data.reviewData);
+      
+    });
   }, []);
 
   const edit = () => {
     //   console.log(data);
-    const req = {
-      review: review,
-      title: title,
-    };
-    axios.put(
-      `http://localhost:5000/review/updateReview/61853129f0503bc8655c0df9`,
-      req
-    );
-  };
+      const req = {
+        review: review, 
+        title: title
+      };
+      axios.put(`http://localhost:5000/review/updateReview/${revId}`,req )
+  } 
+ 
+  // const currentRe = data[0].reviews.map((data, id ) => (
+  //   <li key={id}>
+
+  //     <h3>{data.review}</h3>
+      
+  //   </li>
+    
+
+  // ));
+  
 
   return (
     <div>
@@ -68,4 +78,3 @@ function Reviews() {
   );
 }
 export default Reviews;
-

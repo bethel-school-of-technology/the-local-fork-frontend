@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Hiragino Mincho ProN;
+    background: linear-gradient(100deg,  #dde0c6,#66888d);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    background: #425B5F;
+    width: 600px;
+    height: 70vh;
+    border-radius: 20px;
+}
+
+.login form {
+    padding: 0px 40px;
+    box-sizing: border-box;
+}
+
+form .textfield {
+    position: relative;
+    /* border-bottom: 2px solid #adadaa; */
+    width: 300px;
+    margin: 30px 0;
+    height: 50px;
+    /* padding: 0 5px; */
+    padding: 14px 10px;
+    font-size: 16px;
+    transition: .25s;
+    border-radius: 25px;
+
+    background: none;
+    text-align: center;
+    border: none;
+    display: block;
+    border: 2px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+    
+}
+
+.textfield input {
+    width: 100%;
+}
+
+.login label {
+    font-size: 30px;
+
+    /* position: absolute;
+    top: 50%;
+    left: 5px;
+    color: violet;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .25s; */
+    
+}
+
+/* this can be removed, making the textarea bigger when clicked */
+form .textfield[type='text']:focus,
+form .textfield[type='password']:focus {
+    color: white;
+    width: 400px;
+    border-color: #2ecc71;
+    font-size: 20px;
+}
+
+
+form .textfield[type='text']:focus ~ label, form .textfield[type='text']:valid ~ label{
+    top: -5px;
+    color: violet;
+}
+
+button.submit {
+    width: 300px;
+    height: 50px;
+    border: 1px solid;
+    background: #B9BCA5;
+    border-radius: 25px;
+    font-size: 20px;
+    color: #425B5F;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button.submit:hover{
+    background-color:#2ecc71;
+    border-width: 5px;
+    transition: .25s;
+}
+
+.signuplink {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 20px;
+    color: grey;
+
+}
+
+.signuplink a{
+    color: #B9BCA5;
+}
+
+.signuplink :hover{
+    color: white;
+}
+
+.welcome {
+    font-family: 'Beth Ellen', cursive;
+    text-align: center;
+    color: white;
+    padding: 0px 0px 10px 0px;
+    border-bottom: 1px solid silver;
+    left: 30%;
+    /* font-weight: 500; */
+}

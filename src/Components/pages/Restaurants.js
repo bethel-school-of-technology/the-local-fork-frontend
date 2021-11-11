@@ -125,7 +125,7 @@ function Restaurants() {
         <Card.Body>
           <Card.Title></Card.Title>
           <Card.Text>
-            {data.name}
+           {data.name}
             {data._id}
             <br />
             Hours {data.hours} a day
@@ -150,7 +150,7 @@ function Restaurants() {
 })} */}
       </Card>
 
-      {reviewData.map((review, id) => {
+      {/* {reviewData.map((review, id) => {
         return (
           <div key={id}>
             <h3>{review.title}</h3>
@@ -158,7 +158,7 @@ function Restaurants() {
             <Link to={`/reviews/${review.restaurantId}`}>Edit</Link>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }

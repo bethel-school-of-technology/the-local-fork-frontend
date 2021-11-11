@@ -13,7 +13,7 @@ import Login from "./Components/pages/Login";
 import Home from "./Components/pages/Home";
 import Profile from "./Components/pages/ProfilePage";
 import Favorites from "./Components/pages/Favorites";
-// import Newres from "./Components/pages/NewRes";
+import Newres from "./Components/pages/NewRes";
 
 import Logout from "./Components/pages/Logout";
 import Restaurants from "./Components/pages/Restaurants";
@@ -78,14 +78,14 @@ function App() {
           <Route path="/Login" exact component={Login} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/signup" exact component={Signup} />
-          <Route path="/Reviews/" exact component={Reviews} />
+          <Route path="/Reviews/:restaurantId" exact component={Reviews} />
           <Route path="/Map" exact component={Map} />
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/" exact>
             <Home restSearchData={searchResults} typing={isTyping}/>
           </Route>
           <Route path="/favorites" exact component={Favorites} />
-          {/* <Route path="/NewR/:restaurantName" exact component={Newres}/> */}
+          <Route path="/NewR/" exact component={Newres}/>
           {/* <Route path="/NewR" exact component={Newres}/> */}
           <Route path="/Restaurants/:restaurantName" exact component={Restaurants}/> 
 

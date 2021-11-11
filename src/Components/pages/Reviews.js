@@ -1,41 +1,73 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 // import Newres from "./Newres";
 // import { Component } from "react";
 
 function Reviews() {
   // const [reviewData, setreviewData] = useState([]);
   //   const [data, setData] = useState([]);
-
+  const { restaurantId } = useParams();
   const [title, setTitle] = useState("");
   const [review, setReview] = useState("");
   const [revId, setRevId] = useState("");
+  // const [restaurantId, setRestaurantId] = useState("")
+
 //   const token ='mytoken'
 console.log(revId);
 
   useEffect(() => {
-
-    axios.get(`http://localhost:5000/review/review/${revId}`).then((res) => {
+// review-by-restaurant-curr-user
+    axios.get(`http://localhost:5000/review/review-by-restaurant-curr-user/${restaurantId}`).then((res) => { //Restaurant ID
+      console.log(res);
+      setTitle(res.data.reviewData[0].title);
+      setReview(res.data.reviewData[0].review);
+      setRevId(res.data.reviewData[0]._id);
+      // setRestaurantId(res.data.reviewData[0]._id);
+        console.log(res.data.reviewData);
+      // axios.get(`http://localhost:5000/review/${restaurantId}`).then((res) => { //Restaurant ID
       // console.log(res);
-    //   setData(res.data.reviewData[0]);
-    setTitle(res.data.reviewData[0].title);
-    setReview(res.data.reviewData[0].review);
-    setRevId(res.data.reviewData[0]._id);
-      console.log(res.data.reviewData);
+
+
+
+//       if (res) { // review exist
+//  //   setData(res.data.reviewData[0]);
+//  setTitle(res.data.reviewData[0].title);
+//  setReview(res.data.reviewData[0].review);
+//  setRevId(res.data.reviewData[0]._id);
+//  // setRestaurantId(res.data.reviewData[0]._id);
+//    console.log(res.data.reviewData);
+//       } else {
+//       //   // review not exist yet
+//       }
+
+   
       
     });
   }, []);
 
-  const edit = () => {
-    //   console.log(data);
-      const req = {
-        review: review, 
-        title: title
-      };
-      axios.put(`http://localhost:5000/review/updateReview/${revId}`,req )
-  } 
+//   const save = () => {
+//     //   console.log(data);
+// if (revId) { // review exist
+//   const req = {
+//     review: review, 
+//     title: title
+//   };
+//   axios.put(`http://localhost:5000/review/updateReview/${revId}`,req ) //Review ID
+// } else { // review not exist, we are creating one
+//   const req = {
+//     review: review, 
+//     title: title,
+//     restaurantId: restaurantId,
+//   };
+
+//   // TODO send post to server to addReview route
+
+// }
+
+//   } 
  
   // const currentRe = data[0].reviews.map((data, id ) => (
   //   <li key={id}>
@@ -54,7 +86,7 @@ console.log(revId);
         <Card style={{ width: "18rem" }}>
           <Card.Body>
             <Card.Title>
-              <h1></h1>
+             
             </Card.Title>
             <Card.Text>
               {title}
@@ -68,9 +100,9 @@ console.log(revId);
               value={review}
               onChange={(e) => setReview(e.target.value)}
             />
-            <Button type="button" onClick={edit} variant="primary">
+            {/* <Button type="button" onClick={save} variant="primary">
               Edit review?
-            </Button>
+            </Button> */}
           </Card.Body>
         </Card>
       </form>

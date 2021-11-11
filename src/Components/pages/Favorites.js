@@ -13,7 +13,7 @@ function App() {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   //DELETE REVIEW
-  const [reviews, setReviews] = useState('');
+  // const [reviews, setReviews] = useState('');
 
   const handleClick = (value) => {
     setCurrentValue(value);

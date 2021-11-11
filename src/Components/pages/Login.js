@@ -6,9 +6,9 @@ import React, { useState } from "react";
 import "../Login.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "react-bootstrap/Button";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from 'yup';
+// import { useForm } from 'react-hook-form';
 
 //create schema for yup 
 // const schema = yup.object().shape({
@@ -23,7 +23,7 @@ import { useForm } from 'react-hook-form';
 const Login = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [message, setMessage] = useState( "" );
 
   //yup
   // const {errors} = useForm({
@@ -48,13 +48,16 @@ const Login = ({ history }) => {
       axios.post("http://localhost:5000/users/login", req).then((result) => {
         const token = result.data;
         console.log(result);
-        //if else
-        localStorage.setItem("mytoken", JSON.stringify(token));
-        history.push("/profile");
+        if (result.data.token) {
+          localStorage.setItem("mytoken", JSON.stringify(token));
+          history.push("/profile");
+          // setMessage(result.data.message);
+       } else {
+        // history.push("/login");
+        setMessage(result.data.message);
+      }
       });
-    } else {
-      history.push("/login");
-    }
+    } 
   };
 
   // useEffect(() => {
@@ -80,19 +83,24 @@ const Login = ({ history }) => {
         />
         {/* <p>{errors.username?.message}</p> */}
         {/* <label>Password:</label> */}
-
+     
         <input
           className="textfield"
           type="password"
           name="password"
           placeholder="Password"
+          
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* <p>{errors.password?.message}</p> */}
         {/* <Link to="/profile" > */}
-        <Button type="submit" className="submit">
-          Sign in
+        
+        
+       
+        <Button type="submit" className="submit"> {message} 
+          -Sign in-
         </Button>
+       
         {/* </Link>   This is close to what I want but it breaks.  */}
         <div className="signuplink">
           Not a member? <a href="/signup">Sign up</a>{" "}

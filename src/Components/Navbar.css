@@ -32,6 +32,17 @@
     align-items: center;
   }
   
+.img {
+  color: #fff;
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
   .fa-utensils {
     margin-left: 0.5rem;
     font-size: 1.8rem;

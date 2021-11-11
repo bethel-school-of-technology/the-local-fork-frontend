@@ -1,55 +1,9 @@
-// import React from 'react';
-// import axios from 'axios';
-
-
-// export default class Reviews extends React.Component {
-//     state = {
-//         name: ''
-//     };
-
-// handleChange = event =>{
-//     this.setState({ name: event.target.value});
-// }
-
-//     handleSubmit = event => {
-//         event.preventDefault();
-    
-    
-// const user = {
-//     name: this.state.name
-// }
-
-// axios.get(`http://localhost:5000/restaurant/reviews`, { user })
-//     .then(res => {
-//         console.log(res);
-//         console.log(res.data);
-//     })
-
-//     }
-
-//     render() {
-//         return (
-//             <form onSubmit={this.handleSubmit}>
-//                 <label>
-//                     Person Name:
-//                     {/* <input type='text' name='name' onChange={this.handleChange} /> */}
-//                 </label>
-//                 {/* <button type='submit'>Post</button> */}
-//             </form>
-//         );
-        
-//     }
-// }
-
-
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import Newres from "./Newres";
 // import { Component } from "react";
-
-
 
 function Reviews() {
   // const [reviewData, setreviewData] = useState([]);

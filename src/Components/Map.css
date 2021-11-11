@@ -10,15 +10,6 @@ h1 {
   padding: 0;
 }
 
-/* .dialog {
-    background-color: brown;
-} */
-
-/* .gm-style-iwgm-style-iw-c{
-    background-color: blueviolet;
-
-} */
-
 .search {
   position: absolute;
   left: 50%;
@@ -57,19 +48,13 @@ input.zoomcity {
   position: fixed;
   left: 650px;
   top: 370px;
-  /* background-color: gainsboro; */
-  border-radius: 5px;
-  /* transform: translate3d(70%,3%,0); */
 
+  border-radius: 5px;
 
   padding: 17px 241.47px 47px 8px;
-  /* flex-direction: column;
-  align-items: flex-start;
-  position: relative; */
 }
 
 .resNameMap {
-  /* font-family: 'Beth Ellen', cursive; */
   height: 18.49%;
   width: 94.16%;
   font-family: "Hiragino Mincho ProN";
@@ -78,15 +63,12 @@ input.zoomcity {
   line-height: normal;
   color: #303030;
   display: flex;
-  /* align-items: center; */
+
   margin-bottom: 22.66px;
   letter-spacing: 1.08px;
 }
 
 p {
-  /* font-size: 20px;
-  font-family: Hiragino Mincho ProN; */
-
   height: 30%;
   width: 100%;
   font-family: "Hiragino Mincho ProN";

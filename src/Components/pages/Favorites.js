@@ -80,7 +80,7 @@ function App() {
           );
         })}
       </div>
-
+        <input placeholder="userName"style={styles.input}></input>
       
 
 
@@ -113,6 +113,14 @@ const styles = {
     width: 300,
     padding: 10
   },
+  input: {
+    border: "1px solid #a9a9a9",
+    borderRadius: 5,
+    width: 300,
+    margin: "10px 0",
+    minHeight: 10,
+    padding: 10
+  }
 };
 
 export default App;

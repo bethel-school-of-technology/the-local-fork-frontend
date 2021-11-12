@@ -36,7 +36,7 @@ function Home({ restSearchData, typing }) {
                     <br />
                     {data.location}
                     <br />
-                    <Link to={`/Restaurants/${data.name}`}>View more</Link>
+                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
                   </FigureCaption>
                 </Figure>
               </div>
@@ -48,10 +48,10 @@ function Home({ restSearchData, typing }) {
           <Row>
             {restSearchData.map(
               (data, id) =>
-                id < 3 && (
+                 (
                   <div key={id} className="col-lg-3 col-sm-6">
                     <Figure>
-                      <Link to={`/Restaurants/${data.name}`}>
+                      <Link to={`/Restaurants/${data._id}`}>
                         <FigureImage
                           variant="top"
                           src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
@@ -62,6 +62,7 @@ function Home({ restSearchData, typing }) {
                         {data.name}
                         <br />
                         {data.location}
+                        {data.hours}
                         <br />
                       </FigureCaption>
                     </Figure>

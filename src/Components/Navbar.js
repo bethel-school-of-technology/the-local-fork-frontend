@@ -52,7 +52,7 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
               <ul className={click ? "nav-menu active" : "nav-menu"}>
                 {/* Home Icon */}
                 <li className="nav-item">
-                  <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                  <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>
                     <i className="fas fa-home"></i>
                   </Link>
                 </li>

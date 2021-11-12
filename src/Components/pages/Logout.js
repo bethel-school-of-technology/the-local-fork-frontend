@@ -46,7 +46,7 @@ const Logout = ({
             //    <i class="fas fa-sign-out-alt text-white bg-dark"></i>
             // </button> */}
             <Link
-                    to="/"
+                    to="/login"
                     className="nav-links"
                     onClick={logout}
                     >

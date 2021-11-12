@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-
-const RestContext = React.createContext([])
-
+const RestContext = React.createContext([]);
 
 export default RestContext;

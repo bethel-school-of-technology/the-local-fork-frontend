@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { Button } from "./Button";
 import { Button2 } from "./Button2";
 import SearchBar from "./searchbar";
-import { Row, Col } from 'react-bootstrap';
-
+import { Row, Col } from "react-bootstrap";
 
 function Navbar({ handleSubmit, query, findRestaurant }) {
   const [click, setClick] = useState(false);
@@ -28,29 +26,31 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
   window.addEventListener("resize", showButton);
 
   return (
-
-
-
-
     <>
       <Row>
         <nav className="navbar">
           <Col>
             <div className="navbar-container">
-
               {/* TLF Logo (Left Side) */}
-              <Link to="/"
-                className="navbar-logo"
-                onClick={closeMobileMenu}>
-                <img className="navbar-logo"
+              <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+                <img
+                  className="navbar-logo"
                   src="../TLFLogo.png"
                   alt="Logo"
+<<<<<<< HEAD
                   style={
                     {
                       width: '90px',
                       marginLeft: "100px"
                     }
                   } />
+=======
+                  style={{
+                    width: "90px",
+                    marginLeft: "100px",
+                  }}
+                />
+>>>>>>> 957a90468ad264430b535f2559dd7e1bd260f25d
               </Link>
 
               {/* Responsive Menu Icon */}
@@ -59,13 +59,9 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
               </div>
 
               <ul className={click ? "nav-menu active" : "nav-menu"}>
-
                 {/* Home Icon */}
                 <li className="nav-item">
-                  <Link
-                    to="/"
-                    className="nav-links"
-                    onClick={closeMobileMenu}>
+                  <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                     <i className="fas fa-home"></i>
                   </Link>
                 </li>
@@ -75,7 +71,8 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   <Link
                     to="/favorites"
                     className="nav-links"
-                    onClick={closeMobileMenu}>
+                    onClick={closeMobileMenu}
+                  >
                     <i className="far fa-heart"></i>
                   </Link>
                 </li>
@@ -85,7 +82,8 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   <Link
                     to="/map"
                     className="nav-links"
-                    onClick={closeMobileMenu}>
+                    onClick={closeMobileMenu}
+                  >
                     <i className="fas fa-map-marker-alt"></i>
                   </Link>
                 </li>
@@ -93,17 +91,16 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                 {/* Sign Up Icon */}
                 <li className="nav-item">
                   <Link
-                    to="/signup"
+                    to="/login"
                     className="nav-links"
-                    onClick={closeMobileMenu}>
+                    onClick={closeMobileMenu}
+                  >
                     <i className="far fa-user"></i>
                   </Link>
                 </li>
 
                 {/* Logout Icon */}
-                <li className="nav-item">
-                  {button && <Button2 ></Button2>}
-                </li>
+                <li className="nav-item">{button && <Button2></Button2>}</li>
               </ul>
             </div>
           </Col>
@@ -122,5 +119,3 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
 }
 
 export default Navbar;
-
-

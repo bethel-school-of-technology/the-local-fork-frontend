@@ -58,7 +58,7 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                 </li>
 
                 {/* Favorites Icon */}
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link
                     to="/favorites"
                     className="nav-links"
@@ -66,7 +66,7 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   >
                     <i className="far fa-heart"></i>
                   </Link>
-                </li>
+                </li> */}
 
                 {/* Map Icon */}
                 <li className="nav-item">

@@ -152,6 +152,7 @@ export default function App() {
           >
             <div>
               <h2 className="resNameMap">{selectedRes.name}</h2>
+              {/* {selectedRes.image?.length > 0 && } */}
               {/* <p>{selectedRes.rating}</p> */}
               <p>{selectedRes.location}</p>
               <img className="resImage" src="https://the-local-fork.s3.us-east-2.amazonaws.com/godaifLogo.png" alt=""/>

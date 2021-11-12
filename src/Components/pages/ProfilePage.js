@@ -1,6 +1,8 @@
 // From the office hours.
 import React, { useState, useEffect } from "react";
 // import axios from 'axios';
+import "../Profile.css";
+import { Button } from "react-bootstrap";
 
 function Profile() {
   const [data, setData] = useState([]);
@@ -12,20 +14,10 @@ function Profile() {
 
   }, []);
   
-  // useEffect(() => {
-  // };
-  //   axios.get(`http://localhost:5000/review/review/617e82a3eaffff441598afd7`).then((res) => {
-  //     // console.log(res);
-  //   //   setData(res.data.reviewData[0]);
-  //  setData(res.data);
-  //     console.log(res)
-      
-  //   });
-  // }, []);
   return (
-    <ul>
-      <h2>This is {data.username}'s Page</h2>
+    <div className="wrappe">
       <div>
+      <h2>This is {data.username}'s Page</h2>
         {/* <li>First Name:   {data.firstname}</li>
         <li>Last Name:   {data.lastname}</li>
         <li>City:   {data.city}</li>
@@ -39,7 +31,8 @@ function Profile() {
         <button >Click to see reviews</button>
         {/* <li>{data.username}</li> */}
       </div>
-    </ul>
+      <img className="logo" scr="https://the-local-fork.s3.us-east-2.amazonaws.com/TLFLogo.png" alt="logo" />
+    </div>
   );
 }
 export default Profile;

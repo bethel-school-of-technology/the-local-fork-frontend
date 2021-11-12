@@ -71,13 +71,12 @@ const Login = ({ history }) => {
           
           onChange={(e) => setPassword(e.target.value)}
         />
-        <p>{message}</p>
+        <p className="errormessage">{message}</p>
         {/* <Link to="/profile" > */}
         
         
        
         <Button type="submit" className="submit"> 
-        {/* {message}  */}
           Sign in
         </Button>
        

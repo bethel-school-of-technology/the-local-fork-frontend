@@ -37,20 +37,11 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   className="navbar-logo"
                   src="../TLFLogo.png"
                   alt="Logo"
-<<<<<<< HEAD
-                  style={
-                    {
-                      width: '90px',
-                      marginLeft: "100px"
-                    }
-                  } />
-=======
                   style={{
                     width: "90px",
                     marginLeft: "100px",
                   }}
                 />
->>>>>>> 957a90468ad264430b535f2559dd7e1bd260f25d
               </Link>
 
               {/* Responsive Menu Icon */}

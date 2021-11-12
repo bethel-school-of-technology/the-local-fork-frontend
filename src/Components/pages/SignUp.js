@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../SignUp.css";
-// import { Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -95,7 +95,7 @@ export default class Login extends React.Component {
           <h2 className="join">Join the Foodies</h2>
           
           <div className="form-group">
-            <label> First Name</label>
+            {/* <label> First Name</label> */}
             <input
               type="text"
               value={this.state.firstname}
@@ -105,7 +105,7 @@ export default class Login extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Last Name</label>
+            {/* <label>Last Name</label> */}
             <input
               type="text"
               value={this.state.lastname}
@@ -165,13 +165,13 @@ export default class Login extends React.Component {
             /> */}
           </div>
           <div className="form-group">
-            <button
+            <Button
               type="submit"
               value="Login"
-              className="form-input-btn"
+              className="submit"
             >
               Sign Up
-            </button>
+            </Button>
             {/* <input type="submit" value="Login" className="btn btn-success btn-block" /> */}
           </div>
         </form>

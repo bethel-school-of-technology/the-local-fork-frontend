@@ -26,17 +26,17 @@ function Profile() {
     <ul>
       <h2>This is {data.username}'s Page</h2>
       <div>
-        <li>First Name:   {data.firstname}</li>
+        {/* <li>First Name:   {data.firstname}</li>
         <li>Last Name:   {data.lastname}</li>
         <li>City:   {data.city}</li>
         <li>Tagline:  {data.tagline}</li>
-        <li>Username:   {data.username}</li>
+        <li>Username:   {data.username}</li> */}
         <br/>
-        <button >Click to see reviews</button>
         <p>{data.firstname} {data.lastname}</p>
         {/* <li>Last Name:   {data.lastname}</li> */}
         <p>{data.city}</p>
         <p>{data.tagline}</p>
+        <button >Click to see reviews</button>
         {/* <li>{data.username}</li> */}
       </div>
     </ul>

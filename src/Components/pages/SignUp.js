@@ -100,7 +100,7 @@ export default class Login extends React.Component {
               type="text"
               value={this.state.firstname}
               onChange={this.onChangeFirstName}
-              className="form-control"
+              className="form-control2"
               placeholder="First Name"
             />
           </div>
@@ -110,7 +110,7 @@ export default class Login extends React.Component {
               type="text"
               value={this.state.lastname}
               onChange={this.onChangeLastName}
-              className="form-control"
+              className="form-control2"
               placeholder="Last Name"
             />
           </div>
@@ -120,7 +120,7 @@ export default class Login extends React.Component {
               type="email"
               value={this.state.email}
               onChange={this.onChangeEmail}
-              className="form-control"
+              className="form-control2"
               placeholder="Email"
             />
           </div>
@@ -140,7 +140,7 @@ export default class Login extends React.Component {
               type="text"
               value={this.state.username}
               onChange={this.onChangeUserName}
-              className="form-control"
+              className="form-control2"
               placeholder="Username"
             />
           </div>{" "}
@@ -150,7 +150,7 @@ export default class Login extends React.Component {
               type="password"
               value={this.state.password}
               onChange={this.onChangePassword}
-              className="form-control"
+              className="form-control2"
               placeholder="Password"
             />
           </div>{" "}

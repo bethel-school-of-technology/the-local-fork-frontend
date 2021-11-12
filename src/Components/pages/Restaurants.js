@@ -18,50 +18,8 @@ function Restaurants() {
   const [reviewData, setReviewData] = useState([]);
   //console.log(reviewData);
 
-  // const loadData = async function getfbProfile(token) {
-  //   try {
-  //     const restaurant = await axios
-  //       .get(`http://localhost:5000/restaurant/${restaurantName}`)
-  //       .then((res) => {
-  //         console.log(res);
-  //         setData(res.data.data);
-  //         setRestId(res.data.data._id);
-  //         return res.data.data;
-  //       });
-
-  //     const review = Promise.all(
-  //       restaurant.data.map(({ id }) => {
-  //         axios
-  //           .get(`http://localhost:5000/review/review/${restId}`)
-  //           .then((reviewDataFound) => {
-  //             console.log(reviewDataFound);
-  //             setReviewData(reviewDataFound.data.reviewData);
-  //           });
-  //       })
-  //     );
-
-      // await axios.get(`http://localhost:5000/review/review/${restId}`).then((reviewDataFound)=>{
-      //   console.log(reviewDataFound);
-      //   setReviewData(reviewDataFound.data.reviewData)
-      // })
-
-      // const pages = Promise.all(user.data.accounts.data.map(({ id }) => axios.get(`https://graph.facebook.com/${id}`, {
-      //   params: {
-      //     access_token: token,
-      //     fields: 'picture,name',
-      //   },
-      // })));
-      // const fbProfile = await Promise.all([user, pages]);
-      // debug(fbProfile);
-  //   } catch (err) {
-  //     // debug(err.stack);
-  //   }
-  // };
-
+  
   useEffect(() => {
-    //console.log(restaurantName);
-
-    // loadData();
 
     axios
       .get(`http://localhost:5000/restaurant/${restaurantName}`)
@@ -78,41 +36,6 @@ function Restaurants() {
       });
   }, [restaurantName]);
 
-  // const resData = JSON.parse(localStorage.getItem("restourantData"));
-  // console.log(resData.restaurants)
-  // // setreviewData(resData.restaurants)
-  // setData(resData.restaurants)
-  //   }, []);
-
-  //   if (!data) return null;
-
-  // const currentRestaurants = data.map((rest, id) =>  (
-  //   <ul key={id}>
-
-  //     "{rest.name}"
-  //     {rest.hours}
-  //     {rest.location}
-  //     {rest.rating}
-  //   </ul>
-  // ));
-
-  // const currentReviews = data[0].reviews.map((rest, id ) => (
-  //   <li key={id}>
-  //         <h1>{rest.name}</h1>
-  //   <h1>{rest.username}</h1>
-  //     <h1>{rest.review}</h1>
-
-  //   </li>
-  // ));
-
-  // const currentRe = data[0].reviews.map((data, id ) => (
-  //   <li key={id}>
-
-  //     <h3>{data.review}</h3>
-
-  //   </li>
-
-  // ));
 
   return (
     <div>

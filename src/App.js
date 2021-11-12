@@ -13,21 +13,12 @@ import Login from "./Components/pages/Login";
 import Home from "./Components/pages/Home";
 import Profile from "./Components/pages/ProfilePage";
 import Favorites from "./Components/pages/Favorites";
-import Newres from "./Components/pages/NewRes";
+// import Newres from "./Components/pages/NewRes";
 
 import Logout from "./Components/pages/Logout";
 import Restaurants from "./Components/pages/Restaurants";
 
-
-
-
-
-
-
-
 function App() {
-
-
 
   const [query, setQuery] = useState("");
   const [isTyping, SetTyping] = useState(false)
@@ -63,9 +54,6 @@ function App() {
            }
       })
       console.log(query)
-
-    
-
   }
 
 
@@ -85,7 +73,6 @@ function App() {
             <Home restSearchData={searchResults} typing={isTyping}/>
           </Route>
           <Route path="/favorites" exact component={Favorites} />
-          <Route path="/NewR/" exact component={Newres}/>
           {/* <Route path="/NewR" exact component={Newres}/> */}
           <Route path="/Restaurants/:restaurantName" exact component={Restaurants}/> 
 

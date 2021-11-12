@@ -6,18 +6,6 @@ import React, { useState } from "react";
 import "../Login.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "react-bootstrap/Button";
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import * as yup from 'yup';
-// import { useForm } from 'react-hook-form';
-
-//create schema for yup 
-// const schema = yup.object().shape({
-//   username: yup.string().required(),
-//   password: yup.string().required()
-// })
-
-
-
 
 
 const Login = ({ history }) => {
@@ -25,17 +13,9 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState( "" );
 
-  //yup
-  // const {errors} = useForm({
-  //   resolver: yupResolver(schema)
-  // });
-
 
 
   const signIn = (e) => {
-    //trying this out for yup, if it doesnt work delete lines 36-38,
-    // const {signIn} = (e) => {
-      // resolver: yupResolver(schema);
     e.preventDefault();
 
     if (username !== "" && password !== "") {
@@ -81,7 +61,6 @@ const Login = ({ history }) => {
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
-        {/* <p>{errors.username?.message}</p> */}
         {/* <label>Password:</label> */}
      
         <input
@@ -92,13 +71,14 @@ const Login = ({ history }) => {
           
           onChange={(e) => setPassword(e.target.value)}
         />
-        {/* <p>{errors.password?.message}</p> */}
+        <p>{message}</p>
         {/* <Link to="/profile" > */}
         
         
        
-        <Button type="submit" className="submit"> {message} 
-          -Sign in-
+        <Button type="submit" className="submit"> 
+        {/* {message}  */}
+          Sign in
         </Button>
        
         {/* </Link>   This is close to what I want but it breaks.  */}

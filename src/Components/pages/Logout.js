@@ -1,6 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../Button2.css";
+
 
 const STYLES = ['btn--primary', 'btn--outline']
 const SIZES = ['btn--medium', 'btn--large'];
@@ -23,22 +24,36 @@ const Logout = ({
         ? buttonSize
         : SIZES[0];
 
-    const handleSubmit = () => {
+    const logout = () => {
         localStorage.removeItem("mytoken");
         history.push('/login');
 
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        // <form onSubmit={handleSubmit}>
 
-            <button
-                className={`btn fas fa-sign-out-alt ${checkButtontStyle} ${checkButtontSize}`}
-                onClick={onClick}
-                type={type="submit"}>
-                {children}
-            </button>
-        </form>
+            // {/* <button
+            //     className={`btn fas fa-sign-out-alt ${checkButtontStyle} ${checkButtontSize}`}
+            //     onClick={onClick}
+            //     type={type="submit"}>
+            //     {children}
+            // </button> */}
+            // {/* <button
+            //     className={`bg-dark`}
+            //     onClick={onClick}
+            //     type={type="submit"}>
+            //    <i class="fas fa-sign-out-alt text-white bg-dark"></i>
+            // </button> */}
+            <Link
+                    to="/"
+                    className="nav-links"
+                    onClick={logout}
+                    >
+                    <i className="fas fa-sign-out-alt"></i>
+                  </Link>
+         
+        // </form>
     )
 
 };

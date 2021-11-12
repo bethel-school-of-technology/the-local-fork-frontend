@@ -22,14 +22,17 @@ export const Button = ({
     : SIZES[0];
 
     return (
+        // <Link to='/signup' className='btn-mobile'>
+        //     <button
+        //     className={`btn far fa-user ${checkButtontStyle} ${checkButtontSize}`}
+        //     onClick={onClick}
+        //     type={type}
+        //     >
+        //         {children}
+        //     </button>
+        //     </Link>
         <Link to='/signup' className='btn-mobile'>
-            <button
-            className={`btn far fa-user ${checkButtontStyle} ${checkButtontSize}`}
-            onClick={onClick}
-            type={type}
-            >
-                {children}
-            </button>
+           <i class="far fa-user text-white"></i>
             </Link>
     );
  };

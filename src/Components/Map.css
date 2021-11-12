@@ -1,0 +1,86 @@
+.InfoWindow > h3 {
+  background-color: red;
+}
+
+h1 {
+  position: absolute;
+  left: 1rem;
+  color: blue;
+  z-index: 10;
+  padding: 0;
+}
+
+.search {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 200px;
+  z-index: 10;
+  height: 100px;
+  padding: 2%;
+}
+
+.locate {
+  position: absolute;
+  top: 1rem;
+  right: -8rem;
+  background: none;
+  border: none;
+  z-index: 10;
+}
+
+.compass {
+  margin-top: 20%;
+  width: 30%;
+  height: 30%;
+}
+
+input.zoomcity {
+  min-height: 60px;
+  min-width: 300px;
+  padding: 4%;
+  font-family: Hiragino Mincho ProN;
+}
+
+.gm-style .gm-style-iw-c {
+  display: flex;
+  position: fixed;
+  left: 650px;
+  top: 370px;
+
+  border-radius: 5px;
+
+  padding: 17px 241.47px 47px 8px;
+}
+
+.resNameMap {
+  height: 18.49%;
+  width: 94.16%;
+  font-family: "Hiragino Mincho ProN";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  color: #303030;
+  display: flex;
+
+  margin-bottom: 22.66px;
+  letter-spacing: 1.08px;
+}
+
+p {
+  height: 30%;
+  width: 100%;
+  font-family: "Hiragino Mincho ProN";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal;
+  color: #303030;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+.resImage {
+  width: 200px;
+}

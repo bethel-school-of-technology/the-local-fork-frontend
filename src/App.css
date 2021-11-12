@@ -2,14 +2,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 .home,
 .get,
 .map,
 .login {
-  background-color:black;
+  background-color: black;
   display: flex;
   height: 90vh;
   align-items: center;
@@ -40,6 +40,3 @@
   color: #fff;
   font-size: 100px;
 }
-
-
-

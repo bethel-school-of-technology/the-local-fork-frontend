@@ -1,0 +1,31 @@
+[
+    {
+        "_id": 1006,
+        "name": "Danfo Bistro",
+        "location": "2 Alexander Rd, Ikoyi",
+        "hours": 12,
+        "deleted": false,
+        "rating": 5,
+        "coordinates": [6.456188, 3.445563],
+        "reviews": []
+    },
+    {
+        "_id": 1007,
+        "name": "Sushiholic",
+        "location": "28 Admiralty Way, Lekki Phase I",
+        "hours": 24,
+        "rating": 5,
+        "deleted": false,
+        "coordinates": [6.447938, 3.473313],
+        "reviews": []
+    },
+    {
+        "deleted": false,
+        "_id": 1008,
+        "name": "Godaif Village",
+        "location": "Asmarina, 26B Turnbull Rd, Ikoyi",
+        "hours": 24,
+        "coordinates": [6.456812, 3.447312],
+        "reviews": []
+    }
+]

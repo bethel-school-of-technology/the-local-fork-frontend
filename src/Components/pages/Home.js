@@ -1,108 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import SearchBar from '../searchbar';
-import DisplaySearch from './DisplaySearch';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-function Home({restSearchData}) {
+import Row from "react-bootstrap/Row";
+import Figure from "react-bootstrap/Figure";
+import FigureImage from "react-bootstrap/FigureImage";
+import FigureCaption from "react-bootstrap/FigureCaption";
+import { Data } from "@react-google-maps/api";
 
-    const [data, setData] = useState([]);
+function Home({ restSearchData, typing }) {
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    axios.get(`http://localhost:5000/restaurant/`).then((res) => {
+      setData(res.data);
+    });
+  }, []);
 
-    console.log(restSearchData)
-
-
-
-
-    useEffect(() => {
-        axios.get(`http://localhost:5000/restaurant/addRes`).then(res => {
-            console.log(res);
-            setData(res.data)
-
-
-        });
-    }, [])
-
-    return (
+  return (
+    <div>
+      {typing ? (
         <div>
-            <ul>
-                <li></li>
-                <li>{data.name}</li>
-{/* 
-                {data.map(d => (
-                <div>
-                    <li>{data.name}</li>
-                    <li>{d.location}</li>
-                    <li>{d.hours}</li>
-                    <li>{data.availability}</li>
-                    <li>{data.rating}</li>
-                    <li>{data.menu}</li>
-                    <li>{data.deleted}</li>
-                </div>
-               
-            ))}  */}
+          <Row>
+            {restSearchData.map((data, id) => (
+              <div key={id} className="col-lg-3 col-sm-6">
+                <Figure>
+                  {data.image?.length > 0 &&
+                    <FigureImage
+                      width={171}
+                      height={180}
+                      alt="171x180"
+                      src={data?.image[0]}
+                      style={{ width: "20rem" }} />}
 
-            {/* {!restSearchData.length === 0 ?  */}
-            {restSearchData.map((data, i) => (
-                <div>
+                  <FigureCaption>
                     {data.name}
-                    
-                </div>
-            )) 
-            //  <div>hi</div>   
-        }
+                    <br />
+                    {data.location}
+                    <br />
+                    <Link to={`/Restaurants/${data.name}`}>View more</Link>
+                  </FigureCaption>
 
-            </ul>
-    
+                </Figure>
+              </div>
+            ))}
+          </Row>
         </div>
-    );
 
+      ) : (
+        <div>
+          <Row>
+            {restSearchData.map(
+              (data, id) =>
+                id < 3 && (
+                  <div key={id} className="col-lg-3 col-sm-6">
+                    <Figure>
+                      <Link to={`/Restaurants/${data.name}`}>
+                        {data.image?.length > 0 &&
+                          <FigureImage
+                            width={171}
+                            height={180}
+                            alt="171x180"
+                            src={data?.image[0]}
+                            style={{ width: "20rem" }} />}
+                      </Link>
+
+                      <FigureCaption>
+                        {data.name}
+                        <br />
+                        {data.location}
+                        <br />
+                        <Link to={`/Restaurants/${data.name}`}>View more</Link>
+                      </FigureCaption>
+                    </Figure>
+                  </div>
+                )
+            )}
+          </Row>
+        </div>
+      )}
+    </div>
+  );
 }
 
-
-
-
-export default Home
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// // import axios from 'axios';
-
-
-// export default class Home extends React.Component {
-//     state = {
-//         // persons: []
-//     }
-
-//     // componentDidMount() {
-//     //     axios.get(`https://jsonplaceholder.typicode.com/users`).then(res => {
-//     //     console.log(res);
-//     //     this.setState({persons: res.data });        
-//     // });
-//     // }
-
-//     render() {
-//         return  <ul>
-//             <li><h1>Home Page</h1></li>
-//             </ul>
-
-//     }
-// }
+export default Home;

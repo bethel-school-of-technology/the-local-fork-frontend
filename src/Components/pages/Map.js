@@ -134,7 +134,7 @@ export default function App() {
               setSelectedRes(res);
             }}
             icon={{
-              url: "/fork-icom.png",
+              url: "/map-marker.png",
               scaledSize: new window.google.maps.Size(40, 40),
             }}
           />
@@ -154,7 +154,7 @@ export default function App() {
               <h2 className="resNameMap">{selectedRes.name}</h2>
               <p>{selectedRes.rating}</p>
               <p>{selectedRes.location}</p>
-              <img className="resImage" src="https://the-local-fork.s3.us-east-2.amazonaws.com/godaifLogo.png" alt=""/>
+              {/* <img className="resImage" src="https://the-local-fork.s3.us-east-2.amazonaws.com/godaifLogo.png" alt=""/> */}
             </div>
           </InfoWindow>
         )}
@@ -181,7 +181,7 @@ function Locate({ panTo }) {
         );
       }}
     >
-      <img className="compass" src="compass.png" alt="compass" />
+      <img className="location" src="location.png" alt="location" />
     </button>
   );
 }
@@ -224,7 +224,7 @@ function Search({ panTo }) {
             setValue(e.target.value);
           }}
           disabled={!ready}
-          placeholder="Zoom in to your city"
+          placeholder="Zoom in to your City"
         />
         <ComboboxPopover>
           <ComboboxList>

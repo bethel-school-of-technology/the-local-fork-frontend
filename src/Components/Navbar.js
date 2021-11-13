@@ -52,13 +52,13 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
               <ul className={click ? "nav-menu active" : "nav-menu"}>
                 {/* Home Icon */}
                 <li className="nav-item">
-                  <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                  <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>
                     <i className="fas fa-home"></i>
                   </Link>
                 </li>
 
                 {/* Favorites Icon */}
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link
                     to="/favorites"
                     className="nav-links"
@@ -66,7 +66,7 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   >
                     <i className="far fa-heart"></i>
                   </Link>
-                </li>
+                </li> */}
 
                 {/* Map Icon */}
                 <li className="nav-item">

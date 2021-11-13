@@ -12,17 +12,17 @@ function Restaurants() {
   // const [reviewData, setreviewData] = useState([]);
   const [data, setData] = useState([]);
   //console.log(data)
-  const { restaurantName } = useParams();
+  const { restaurantId } = useParams();
   const [restId, setRestId] = useState("");
-  //console.log(restId)
+  console.log(restId);
   const [reviewData, setReviewData] = useState([]);
+  const [message, setMessage] = useState("Not signed in");
   //console.log(reviewData);
 
-  
   useEffect(() => {
 
     axios
-      .get(`http://localhost:5000/restaurant/${restaurantName}`)
+      .get(`http://localhost:5000/restaurant/${restaurantId}`)
       .then((res) => {
         setData(res.data.data);
         setRestId(res.data.data._id);
@@ -34,34 +34,44 @@ function Restaurants() {
         console.log(reviewDataFound);
         setReviewData(reviewDataFound.data.reviewData);
       });
-  }, [restaurantName]);
-
+  }, [restaurantId]);
 
   return (
     <div>
       <Card style={{ width: "18rem" }}>
         <Card.Img
           variant="top"
-          src="https://nightlife.ng/wp-content/uploads/2020/08/9540978_bardanfo_jpeg273c8b91416e05bf0daee14b46a8c03e.jpg"
-          style={{ width: "18rem" }}
-        />
+
+          // src="https://nightlife.ng/wp-content/uploads/2020/08/9540978_bardanfo_jpeg273c8b91416e05bf0daee14b46a8c03e.jpg"
+          // style={{ width: "18rem" }}
+        />{" "}
+        <img />
         <Card.Body>
           <Card.Title></Card.Title>
           <Card.Text>
-           {data.name}
+            {data.name}
             {data._id}
             <br />
             Hours {data.hours} a day
           </Card.Text>
           <Card.Text>Address: {data.location}</Card.Text>
           <Card.Text>Rating {data.rating} stars</Card.Text>
-
+          {reviewData.map((review, id) => {
+            return (
+              <div key={id}>
+                <h3>{review.name}</h3>
+                <h5>{review.review}</h5>
+              </div>
+            );
+          })}
           {/* {{Newres}}  */}
-          <Button type="button" variant="primary">
+          {/* <Button type="button" variant="primary">
             Add a review?
-          </Button>
+          </Button> */}
+          <Link to={`/reviews/${restId}`} className="btn btn-primary">
+            Add/Edit Review
+          </Link>
         </Card.Body>
-
         {/* {reviewData.map((review, id)=>{
   return (
     <div>
@@ -72,16 +82,6 @@ function Restaurants() {
   )
 })} */}
       </Card>
-
-      {/* {reviewData.map((review, id) => {
-        return (
-          <div key={id}>
-            <h3>{review.title}</h3>
-            <h5>{review.review}</h5>
-            <Link to={`/reviews/${review.restaurantId}`}>Edit</Link>
-          </div>
-        );
-      })} */}
     </div>
   );
 }

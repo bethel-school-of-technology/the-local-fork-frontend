@@ -73,7 +73,7 @@ function App() {
           {/* <Route path="/NewR/" exact component={Newres} /> */}
           {/* <Route path="/NewR" exact component={Newres}/> */}
           <Route
-            path="/Restaurants/:restaurantName"
+            path="/Restaurants/:restaurantId"
             exact
             component={Restaurants}
           />

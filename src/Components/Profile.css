@@ -22,11 +22,16 @@
 .main_container h2{
     font-family: 'Beth Ellen', cursive;
     font-size: 3.2rem;
+    height: 15vh;
     background-color: white;
     background-image: linear-gradient(to top, #061826 0%, #1b5c8d 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.main_container h3 {
+
 }
 

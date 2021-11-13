@@ -6,6 +6,8 @@ import Row from "react-bootstrap/Row";
 import Figure from "react-bootstrap/Figure";
 import FigureImage from "react-bootstrap/FigureImage";
 import FigureCaption from "react-bootstrap/FigureCaption";
+import { Data } from "@react-google-maps/api";
+
 
 function Home({ restSearchData, typing }) {
   const [data, setData] = useState([]);
@@ -24,45 +26,53 @@ function Home({ restSearchData, typing }) {
             {restSearchData.map((data, id) => (
               <div key={id} className="col-lg-3 col-sm-6">
                 <Figure>
-                  <FigureImage
-                    width={171}
-                    height={180}
-                    alt="171x180"
-                    src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
-                    style={{ width: "20rem" }}
-                  />
+                  {data.image?.length > 0 &&
+                    <FigureImage
+                      width={171}
+                      height={180}
+                      alt="171x180"
+                      src={data?.image[0]}
+                      style={{ width: "20rem" }} />}
+
                   <FigureCaption>
                     {data.name}
                     <br />
                     {data.location}
                     <br />
-                    <Link to={`/Restaurants/${data.name}`}>View more</Link>
+                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
                   </FigureCaption>
+
                 </Figure>
               </div>
             ))}
           </Row>
         </div>
+
       ) : (
         <div>
           <Row>
             {restSearchData.map(
               (data, id) =>
-                id < 3 && (
+                 (
                   <div key={id} className="col-lg-3 col-sm-6">
                     <Figure>
-                      <Link to={`/Restaurants/${data.name}`}>
-                        <FigureImage
-                          variant="top"
-                          src="https://twohealthykitchens.com/wp-content/uploads/2015/12/Christmas-Salad-Recipe-Wreath.jpg"
-                          style={{ width: "20rem" }}
-                        />
+                      <Link to={`/Restaurants/${data._id}`}>
+                        {data.image?.length > 0 &&
+                          <FigureImage
+                            width={171}
+                            height={180}
+                            alt="171x180"
+                            src={data?.image[0]}
+                            style={{ width: "20rem" }} />}
                       </Link>
+
                       <FigureCaption>
                         {data.name}
                         <br />
                         {data.location}
+                        {data.hours}
                         <br />
+                        <Link to={`/Restaurants/${data._id}`}>View more</Link>
                       </FigureCaption>
                     </Figure>
                   </div>

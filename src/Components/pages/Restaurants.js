@@ -9,12 +9,12 @@ import { Link } from "react-router-dom";
 
 function Restaurants() {
   const [data, setData] = useState([]);
+
   const { restaurantId } = useParams();
   const [restId, setRestId] = useState("");
-  console.log(restId)
+  console.log(restId);
   const [reviewData, setReviewData] = useState([]);
   const [message, setMessage] = useState("Not signed in");
-
 
 
   useEffect(() => {
@@ -34,9 +34,9 @@ function Restaurants() {
       });
   }, [restaurantId]);
 
-
   return (
     <div>
+
       <Figure>
 
         {data.image?.length > 0 &&
@@ -61,7 +61,7 @@ function Restaurants() {
           {reviewData.map((review, id) => {
             return (
               <div key={id}>
-                <h3>{review.title}</h3>
+                <h3>{review.name}</h3>
                 <br />
                 <h5>{review.review}</h5>
 

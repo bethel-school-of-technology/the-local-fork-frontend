@@ -56,6 +56,7 @@ function Home({ restSearchData, typing }) {
         // Search Button
         <div>
           <Row>
+
             {restSearchData.map((data, id) => (
               <div key={id} className="" id="card-wrapper">
                   
@@ -78,6 +79,7 @@ function Home({ restSearchData, typing }) {
                   </Figure>
                 </div>
               )
+
             )}
           </Row>
         </div>

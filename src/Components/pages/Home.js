@@ -21,27 +21,30 @@ function Home({ restSearchData, typing }) {
   return (
     <div>
       {typing ? (
+
+        // Search Typing
         <div>
-          <Row>
+          <Row className="container">
             {restSearchData.map((data, id) => (
-              <div key={id} className="col-lg-3 col-sm-6">
-                <Figure>
-                  {data.image?.length > 0 &&
-                    <FigureImage
-                      width={171}
-                      height={180}
-                      alt="171x180"
-                      src={data?.image[0]}
-                      style={{ width: "20rem" }} />}
+              <div key={id} className="" id="card-wrapper">
+
+                <Figure className="card-con">
+                  <Link to={`/Restaurants/${data._id}`}>
+                    {data.image?.length > 0 &&
+                      <FigureImage
+                        src={data?.image[0]} />}
+                  </Link>
 
                   <FigureCaption>
-                    {data.name}
-                    <br />
-                    {data.location}
-                    <br />
-                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
-                  </FigureCaption>
-
+                      <h4> {data.name} </h4>
+                     
+                      <h6>{data.location} </h6>
+                     
+                      {data.hours}
+                      <br />
+                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                    </FigureCaption>
+                
                 </Figure>
               </div>
             ))}
@@ -49,34 +52,32 @@ function Home({ restSearchData, typing }) {
         </div>
 
       ) : (
+
+        // Search Button
         <div>
           <Row>
-            {restSearchData.map(
-              (data, id) =>
-                 (
-                  <div key={id} className="col-lg-3 col-sm-6">
-                    <Figure>
-                      <Link to={`/Restaurants/${data.name}`}>
-                        {data.image?.length > 0 &&
-                          <FigureImage
-                            width={171}
-                            height={180}
-                            alt="171x180"
-                            src={data?.image[0]}
-                            style={{ width: "20rem" }} />}
-                      </Link>
+            {restSearchData.map((data, id) => (
+              <div key={id} className="" id="card-wrapper">
+                  
+                  <Figure className="card-con">
+                    <Link to={`/Restaurants/${data._id}`}>
+                      {data.image?.length > 0 &&
+                        <FigureImage
+                          src={data?.image[0]} />}
+                    </Link>
 
-                      <FigureCaption>
-                        {data.name}
-                        <br />
-                        {data.location}
-                        {data.hours}
-                        <br />
-                        <Link to={`/Restaurants/${data.name}`}>View more</Link>
-                      </FigureCaption>
-                    </Figure>
-                  </div>
-                )
+                    <FigureCaption>
+                      <h4> {data.name} </h4>
+                     
+                      <h6>{data.location}</h6>
+                    
+                      {data.hours}
+                      <br />
+                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                    </FigureCaption>
+                  </Figure>
+                </div>
+              )
             )}
           </Row>
         </div>

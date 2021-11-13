@@ -5,10 +5,7 @@
   font-family: "PT Sans", sans-serif;
 }
 
-.home,
-.get,
-.map,
-.login {
+.home, .get, .map, .login {
   background-color: black;
   display: flex;
   height: 90vh;
@@ -39,4 +36,44 @@
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
+}
+
+#card-wrapper {
+  width: 400px;
+  max-height: 175px;
+  min-height: 175px;
+  margin: 20px;
+}
+
+@media only screen and (max-width: 780px) {
+  #card-wrapper {
+    width: 350px;
+  }
+}
+
+.figure-caption {
+  padding: 10px;
+}
+
+.figure {
+  display: flex !important;
+  background-color: rgba(222, 222, 222, 1);
+  box-shadow: 5px 5px 5px 5px grey;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.figure>a {
+  height: 100%;
+  max-width: 50%;
+  min-width: 50%;
+}
+
+.figure>a>img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
 }

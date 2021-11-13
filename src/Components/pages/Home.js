@@ -10,38 +10,42 @@ import { Data } from "@react-google-maps/api";
 
 
 function Home({ restSearchData, typing }) {
-  const [data, setData] = useState([]);
+  const [resData, setData] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:5000/restaurant/`).then((res) => {
-      setData(res.data);
+      setData(res.data.restaurants);
+      console.log(res.data.restaurants)
     });
   }, []);
 
   return (
     <div>
       {typing ? (
+
+        // Search Typing
         <div>
-          <Row>
+          <Row className="container">
             {restSearchData.map((data, id) => (
-              <div key={id} className="col-lg-3 col-sm-6">
-                <Figure>
-                  {data.image?.length > 0 &&
-                    <FigureImage
-                      width={171}
-                      height={180}
-                      alt="171x180"
-                      src={data?.image[0]}
-                      style={{ width: "20rem" }} />}
+              <div key={id} className="" id="card-wrapper">
+
+                <Figure className="card-con">
+                  <Link to={`/Restaurants/${data._id}`}>
+                    {data.image?.length > 0 &&
+                      <FigureImage
+                        src={data?.image[0]} />}
+                  </Link>
 
                   <FigureCaption>
-                    {data.name}
-                    <br />
-                    {data.location}
-                    <br />
-                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
-                  </FigureCaption>
-
+                      <h4> {data.name} </h4>
+                     
+                      <h6>{data.location} </h6>
+                     
+                      {data.hours}
+                      <br />
+                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                    </FigureCaption>
+                
                 </Figure>
               </div>
             ))}
@@ -49,38 +53,36 @@ function Home({ restSearchData, typing }) {
         </div>
 
       ) : (
+
+        // Search Button
         <div>
           <Row>
-            {restSearchData.map(
-              (data, id) =>
-                 (
-                  <div key={id} className="col-lg-3 col-sm-6">
-                    <Figure>
-                      <Link to={`/Restaurants/${data._id}`}>
-                        {data.image?.length > 0 &&
-                          <FigureImage
-                            width={171}
-                            height={180}
-                            alt="171x180"
-                            src={data?.image[0]}
-                            style={{ width: "20rem" }} />}
-                      </Link>
+            {resData.map((data, id) => (
+              <div key={id} className="" id="card-wrapper">
+                  
+                  <Figure className="card-con">
+                    <Link to={`/Restaurants/${data._id}`}>
+                      {data.image?.length > 0 &&
+                        <FigureImage
+                          src={data?.image[0]} />}
+                    </Link>
 
-                      <FigureCaption>
-                        {data.name}
-                        <br />
-                        {data.location}
-                        {data.hours}
-                        <br />
-                        <Link to={`/Restaurants/${data._id}`}>View more</Link>
-                      </FigureCaption>
-                    </Figure>
-                  </div>
-                )
+                    <FigureCaption>
+                      <h4> {data.name} </h4>
+                     
+                      <h6>{data.location}</h6>
+                    
+                      {data.hours}
+                      <br />
+                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                    </FigureCaption>
+                  </Figure>
+                </div>
+              )
             )}
           </Row>
         </div>
-      )}
+      )} 
     </div>
   );
 }

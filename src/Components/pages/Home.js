@@ -10,11 +10,11 @@ import { Data } from "@react-google-maps/api";
 
 
 function Home({ restSearchData, typing }) {
-  const [data, setData] = useState([]);
+  const [resData, setData] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:5000/restaurant/`).then((res) => {
-      setData(res.data);
+      setData(res.data.restaurants);
     });
   }, []);
 
@@ -40,7 +40,7 @@ function Home({ restSearchData, typing }) {
                      
                       <h6>{data.location} </h6>
                      
-                      {data.hours}
+                      {data.hours} Hours a Day
                       <br />
                       <Link to={`/Restaurants/${data._id}`}>View more</Link>
                     </FigureCaption>
@@ -57,7 +57,7 @@ function Home({ restSearchData, typing }) {
         <div>
           <Row>
 
-            {restSearchData.map((data, id) => (
+            {resData.map((data, id) => (
               <div key={id} className="" id="card-wrapper">
                   
                   <Figure className="card-con">
@@ -72,7 +72,7 @@ function Home({ restSearchData, typing }) {
                      
                       <h6>{data.location}</h6>
                     
-                      {data.hours}
+                      {data.hours} Hours a Day
                       <br />
                       <Link to={`/Restaurants/${data._id}`}>View more</Link>
                     </FigureCaption>

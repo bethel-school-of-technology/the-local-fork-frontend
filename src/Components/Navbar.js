@@ -34,7 +34,7 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
               {/* TLF Logo (Left Side) */}
               <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
                 <img
-                  className="navbar-logo"
+                  className="navbar-logo-img"
                   src="../TLFLogo.png"
                   alt="Logo"
                   style={{

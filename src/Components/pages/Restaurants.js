@@ -6,15 +6,18 @@ import { Figure } from "react-bootstrap";
 import FigureImage from "react-bootstrap/esm/FigureImage";
 import { Link } from "react-router-dom";
 
+// import Newres from "./Newres";
+// import { Component } from "react";
 
 function Restaurants() {
   const [data, setData] = useState([]);
+  //console.log(data)
   const { restaurantId } = useParams();
   const [restId, setRestId] = useState("");
   console.log(restId);
   const [reviewData, setReviewData] = useState([]);
   const [message, setMessage] = useState("Not signed in");
-
+  //console.log(reviewData);
 
   useEffect(() => {
 

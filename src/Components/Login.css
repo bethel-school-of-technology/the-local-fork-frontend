@@ -13,7 +13,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
-  background: #425b5f;
+  background: white;
   width: 600px;
   height: 70vh;
   border-radius: 20px;
@@ -40,7 +40,7 @@ form .textfield {
   text-align: center;
   border: none;
   display: block;
-  border: 2px solid white;
+  border: 2px solid #425b5f;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -65,19 +65,14 @@ form .textfield {
 }
 
 /* this can be removed, making the textarea bigger when clicked */
-form .textfield[type="text"]:focus,
-form .textfield[type="password"]:focus {
-  color: white;
-  width: 400px;
-  border-color: #2ecc71;
-  font-size: 20px;
-}
+/* form .textfield[type='text']:focus,
+form .textfield[type='password']:focus {
+    color: white;
+    width: 400px;
+    border-color: #2ecc71;
+    font-size: 20px;
+} */
 
-form .textfield[type="text"]:focus ~ label,
-form .textfield[type="text"]:valid ~ label {
-  top: -5px;
-  color: violet;
-}
 
 button.submit {
   width: 300px;
@@ -91,11 +86,11 @@ button.submit {
   cursor: pointer;
 }
 
-button.submit:hover {
+/* button.submit:hover {
   background-color: #2ecc71;
   border-width: 5px;
   transition: 0.25s;
-}
+} */
 
 .signuplink {
   margin: 30px 0;
@@ -109,15 +104,20 @@ button.submit:hover {
 }
 
 .signuplink :hover {
-  color: white;
+  color: #425b5f;
 }
 
 .welcome {
-  font-family: "Beth Ellen", cursive;
-  text-align: center;
-  color: white;
-  padding: 0px 0px 10px 0px;
-  border-bottom: 1px solid silver;
-  left: 30%;
-  /* font-weight: 500; */
+    font-family: 'Beth Ellen', cursive;
+    text-align: center;
+    color: #425b5f;
+    padding: 0px 0px 10px 0px;
+    border-bottom: 1px solid silver;
+    left: 30%;
+    font-weight: 500;
+}
+
+.errormessage {
+    color: red;
+    text-align: center;  
 }

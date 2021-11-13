@@ -37,8 +37,8 @@
 
 .main_container h2{
     font-family: 'Beth Ellen', cursive;
-    font-size: 3rem;
-    height: 15vh;
+    font-size: 2.5rem;
+    height: 12vh;
     text-align: center;
     background-color: white;
     background-image: linear-gradient(to top, #061826 0%, #1b5c8d 100%);
@@ -60,7 +60,7 @@
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     transform: translate(0%, -80%);
-    height: 6vh;
+    /* height: 9vh; */
 }
 
 .main_container p{

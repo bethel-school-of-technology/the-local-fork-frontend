@@ -16,7 +16,7 @@ function Restaurants() {
   const [restId, setRestId] = useState("");
   console.log(restId);
   const [reviewData, setReviewData] = useState([]);
-  const [message, setMessage] = useState("Not signed in");
+  const [signedIn, setSignedIn] = useState(false);
   //console.log(reviewData);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ function Restaurants() {
         console.log(reviewDataFound);
         setReviewData(reviewDataFound.data.reviewData);
       });
+      //setSignedIn = localStorage.getItem('myToken')
   }, [restaurantId]);
 
   return (

@@ -17,7 +17,7 @@ const colors = {
 // import Newres from "./Newres";
 // import { Component } from "react";
 
-function Reviews({history}) {
+function Reviews({ history }) {
   // const [reviewData, setreviewData] = useState([]);
   //   const [data, setData] = useState([]);
   const { restaurantId } = useParams();
@@ -27,33 +27,42 @@ function Reviews({history}) {
   const [revId, setRevId] = useState("");
   const userData = JSON.parse(localStorage.getItem("mytoken"));
   const [restaurant, setRestaurant] = useState([]);
+  const [signedIn, setSignedIn] = useState(false);
+  const token = localStorage.getItem("mytoken");
+  if (token !== null) {
+    setSignedIn(true);
+  }
 
   console.log(revId);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/restaurant/${restaurantId}`)
-      .then((res) => {
-        setRestaurant(res.data.data);
-      });
+    if (signedIn === false) {
+      history.push("/login");
+    } else {
+      axios
+        .get(`http://localhost:5000/restaurant/${restaurantId}`)
+        .then((res) => {
+          setRestaurant(res.data.data);
+        });
 
-    axios
-      .get(`http://localhost:5000/review/singlereview/${restaurantId}`, {
-        headers: {
-          Authorization: `${userData.token}`,
-        },
-      })
-      .then((res) => {
-        //Restaurant ID
+      axios
+        .get(`http://localhost:5000/review/singlereview/${restaurantId}`, {
+          headers: {
+            Authorization: `${userData.token}`,
+          },
+        })
+        .then((res) => {
+          //Restaurant ID
 
-        console.log(restaurantId);
-        if (res.data.reviewData) {
-          setTitle(res.data.reviewData.title);
-          setReview(res.data.reviewData.review);
-          setRevId(res.data.reviewData._id);
-          console.log(res.data.reviewData);
-        }
-      });
+          console.log(restaurantId);
+          if (res.data.reviewData) {
+            setTitle(res.data.reviewData.title);
+            setReview(res.data.reviewData.review);
+            setRevId(res.data.reviewData._id);
+            console.log(res.data.reviewData);
+          }
+        });
+    }
   }, [restaurantId]);
 
   const save = () => {
@@ -66,7 +75,7 @@ function Reviews({history}) {
         headers: {
           Authorization: `${userData.token}`,
         },
-      }); 
+      });
     } else {
       // where review does not exist, create one
       const req = {
@@ -82,7 +91,7 @@ function Reviews({history}) {
       });
     }
     history.push(`/restaurants/${restaurantId}`);
-  }; 
+  };
 
   const deleteReview = () => {
     axios.delete(`http://localhost:5000/review/delete/${revId}`, {
@@ -91,34 +100,39 @@ function Reviews({history}) {
       },
     });
     history.push(`/restaurants/${restaurantId}`);
-  }; 
+  };
 
   return (
     <div className="main">
       <div className="main-container">
         <div className="main-content">
-      <h2>Don't be shy... Leave a review!</h2>
-      <h5>Restaurant name:</h5>
-      <h3>{restaurant.name}</h3>
-      
-      <textarea
-        value={review}
-        placeholder="Review"
-        onChange={(e) => setReview(e.target.value)}
-      />
-      <br/>
-      <Button 
-      type="submit" className="subm"
-      onClick={save} alert="Thank you!">
-        Submit
-      </Button>
-      <Button 
-      type="submit" className="subm"
-      onClick={deleteReview} variant="dark" >
-        Delete
-      </Button>
-     
-      </div>
+          <h2>Don't be shy... Leave a review!</h2>
+          <h5>Restaurant name:</h5>
+          <h3>{restaurant.name}</h3>
+
+          <textarea
+            value={review}
+            placeholder="Review"
+            onChange={(e) => setReview(e.target.value)}
+          />
+          <br />
+          <Button
+            type="submit"
+            className="subm"
+            onClick={save}
+            alert="Thank you!"
+          >
+            Submit
+          </Button>
+          <Button
+            type="submit"
+            className="subm"
+            onClick={deleteReview}
+            variant="dark"
+          >
+            Delete
+          </Button>
+        </div>
       </div>
     </div>
   );

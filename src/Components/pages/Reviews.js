@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import "../Review.css";
 
 import { FaStar } from "react-icons/fa";
 
@@ -27,26 +28,6 @@ function Reviews({history}) {
   const userData = JSON.parse(localStorage.getItem("mytoken"));
   const [restaurant, setRestaurant] = useState([]);
 
-  //  const stars = Array(5).fill(0);
-  //  const [currentValue, setCurrentValue] = useState(0);
-  //  const [hoverValue, setHoverValue] = useState(undefined);
-  //  //DELETE REVIEW
-  //  // const [reviews, setReviews] = useState('');
-
-  //  const handleClick = (value) => {
-  //    setCurrentValue(value);
-  //  };
-
-  //  const handleMouseOver = (value) => {
-  //    setHoverValue(value);
-  //  };
-
-  //  const handleMouseLeave = () => {
-  //    setHoverValue(undefined);
-  //  };
-  // const [restaurantId, setRestaurantId] = useState("")
-
-  //   const token ='mytoken'
   console.log(revId);
 
   useEffect(() => {
@@ -69,50 +50,29 @@ function Reviews({history}) {
         if (res.data.reviewData) {
           setTitle(res.data.reviewData.title);
           setReview(res.data.reviewData.review);
-          // setRating(res.data.reviewData.rating);
           setRevId(res.data.reviewData._id);
-          // setRestaurantId(res.data.reviewData[0]._id);
           console.log(res.data.reviewData);
         }
-
-        // axios.get(`http://localhost:5000/review/${restaurantId}`).then((res) => { //Restaurant ID
-        // console.log(res);
-
-        //       if (res) { // review exist
-        //  //   setData(res.data.reviewData[0]);
-        //  setTitle(res.data.reviewData[0].title);
-        //  setReview(res.data.reviewData[0].review);
-        //  setRevId(res.data.reviewData[0]._id);
-        //  // setRestaurantId(res.data.reviewData[0]._id);
-        //    console.log(res.data.reviewData);
-        //       } else {
-        //       //   // review not exist yet
-        //       }
       });
   }, [restaurantId]);
 
   const save = () => {
-    //   console.log(data);
     if (revId) {
-      // review exist
       const req = {
         review: review,
         restaurantName: restaurant.name,
-
-        // rating: rating
       };
       axios.put(`http://localhost:5000/review/updateReview/${revId}`, req, {
         headers: {
           Authorization: `${userData.token}`,
         },
-      }); //Review ID
+      }); 
     } else {
-      // review not exist, we are creating one
+      // where review does not exist, create one
       const req = {
         review: review,
         name: userData.firstname,
         restaurantName: restaurant.name,
-        // rating: rating,
         restaurantId: restaurantId,
       };
       axios.post(`http://localhost:5000/review/addNewReview`, req, {
@@ -132,98 +92,39 @@ function Reviews({history}) {
     });
     history.push(`/restaurants/${restaurantId}`);
   }; 
-  
-  //             </Card.Title>
-  //             <Card.Text>
-  //               {title}
-  //               <br />
-  //               <textarea
-  //                 value={title}
-  //                 onChange={(e) => setTitle(e.target.value)}
-  //               />
-  //             </Card.Text>
-  //             <textarea
-  //               value={review}
-  //               onChange={(e) => setReview(e.target.value)}
-  //             />
-  //             <Button type="button" onClick={save} variant="primary">
-  //               Save Review
-  //             </Button>
-  //             <Button type="button" onClick={deleteReview} className="btn-dangerous" variant="primary">
-  //            Delete Review
-  //             </Button>
-  //           </Card.Body>
-  //         </Card>
-  //       </form>
-  //     </div>
-  //   );
-  // }
 
   return (
-    <div style={styles.container}>
-      <br />
+    <div className="main">
+      <div className="main-container">
+        <div className="main-content">
       <h2>Don't be shy... Leave a review!</h2>
+      <h5>Restaurant name:</h5>
       <h3>{restaurant.name}</h3>
-      {/* <div style={styles.stars}>
-      {stars.map((_, index) => {
-        return (
-          <FaStar
-            // key={index}
-            // size={24}
-            // style={{
-            //   marginRight: 10,
-            //   cursor: "pointer",
-            // }}
-            // color={
-            //   (hoverValue || currentValue) > index
-            //     ? colors.orange
-            //     : colors.grey
-            // }
-            // onClick={() => handleClick(index + 1)}
-            // onMouseOver={() => handleMouseOver(index + 1)}
-            // onMouseLeave={handleMouseLeave}
-          />
-        );
-      })}
-    </div> */}
-      {/* <input value={title} placeholder="Name" onChange={(e) => setTitle(e.target.value)} style={styles.input}></input> */}
-
+      
       <textarea
         value={review}
         placeholder="Review"
         onChange={(e) => setReview(e.target.value)}
-        style={styles.textarea}
       />
-      <Button onClick={save} alert="Thank you!" style={styles.button}>
+      <br/>
+      <Button 
+      type="submit" className="subm"
+      onClick={save} alert="Thank you!">
         Submit
       </Button>
-      <Button onClick={deleteReview} variant="dark" style={styles.button}>
+      <Button 
+      type="submit" className="subm"
+      onClick={deleteReview} variant="dark" >
         Delete
       </Button>
+     
+      </div>
+      </div>
     </div>
   );
 }
 
 const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  textarea: {
-    border: "1px solid #a9a9a9",
-    borderRadius: 5,
-    width: 300,
-    margin: "20px 0",
-    minHeight: 100,
-    padding: 10,
-  },
-  button: {
-    border: "1px solid #a9a9a9",
-    borderRadius: 5,
-    width: 300,
-    padding: 10,
-  },
   input: {
     border: "1px solid #a9a9a9",
     borderRadius: 5,

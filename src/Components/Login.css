@@ -53,26 +53,7 @@ form .textfield {
 
 .login label {
   font-size: 30px;
-
-  /* position: absolute;
-    top: 50%;
-    left: 5px;
-    color: violet;
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
-    transition: .25s; */
 }
-
-/* this can be removed, making the textarea bigger when clicked */
-/* form .textfield[type='text']:focus,
-form .textfield[type='password']:focus {
-    color: white;
-    width: 400px;
-    border-color: #2ecc71;
-    font-size: 20px;
-} */
-
 
 button.submit {
   width: 300px;
@@ -86,11 +67,12 @@ button.submit {
   cursor: pointer;
 }
 
-/* button.submit:hover {
-  background-color: #2ecc71;
+button.submit:hover {
+  background-color: #061826;
   border-width: 5px;
   transition: 0.25s;
-} */
+  color: white;
+}
 
 .signuplink {
   margin: 30px 0;

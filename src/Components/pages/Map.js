@@ -126,7 +126,6 @@ export default function App() {
               <p>{selectedRes.location}</p>
               {selectedRes.image?.length > 0 && 
               <img className="resImage" src={selectedRes?.image[0]} alt=""/>}
-              {/* <img className="resImage" src="https://the-local-fork.s3.us-east-2.amazonaws.com/godaifLogo.png" alt=""/> */}
             </div>
           </InfoWindow>
         )}
@@ -153,7 +152,7 @@ function Locate({ panTo }) {
         );
       }}
     >
-      <img className="location" src="location.png" alt="location" />
+      <img className="compass" src="currentlocation.png" alt="compass" />
     </button>
   );
 }

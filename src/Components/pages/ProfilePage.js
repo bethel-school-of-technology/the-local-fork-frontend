@@ -78,11 +78,11 @@ function Profile() {
             })}
           </div>
         </div>
-        <div className="profileimage">
+        <div >
           <img
+          className="profileimage"
             alt="logo"
-            src="https://the-local-fork.s3.us-east-2.amazonaws.com/TLFProfile.png"
-            // src="https://the-local-fork.s3.us-east-2.amazonaws.com/Restaurant.jpg"
+            src="https://the-local-fork.s3.us-east-2.amazonaws.com/TLFProfile4.png"
           />
         </div>
       </div>

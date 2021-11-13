@@ -2,18 +2,22 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -45%);
   font-size: 30px;
   background: white;
   width: 600px;
-  height: 62vh;
+  height: 80vh;
   border-radius: 20px;
   padding-top: 30px;
 }
 
 .wrapper form {
-  padding: 0px 40px;
+  padding: 20px 40px;
   box-sizing: border-box;
+}
+
+form.form{
+  padding: 20px;
 }
 
 input.form-control2 {

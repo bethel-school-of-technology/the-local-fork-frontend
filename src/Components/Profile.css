@@ -1,9 +1,10 @@
 .profileimage{
-    width: 200px;
-    height: 90vh;
+    /* position: absolute; */
+    width: 800px;
+    height: 800px;
     top: 0;
     left: 0;
-    transform: translate(50%, -50%);
+    transform: translate(10%, 0%);
 }
 
 .main_container {
@@ -19,11 +20,25 @@
     padding: 0 50px;
 }
 
+/* .main_container h1{
+    color: white;
+    letter-spacing: 10px;
+    position: absolute;
+    bottom: 13rem;
+    left: -2rem;
+    margin-left: 2rem;
+    transform: rotate(270deg);
+    transform-origin:0 0;
+    background-color: #061826;
+    height: 10vh;
+    width: 30%;
+    font-family: 'Hiragino Mincho ProN'; 
+} */
+
 .main_container h2{
     font-family: 'Beth Ellen', cursive;
-    /* font-family: 'Hiragino Mincho ProN'; */
     font-size: 3rem;
-    height: 8vh;
+    height: 15vh;
     text-align: center;
     background-color: white;
     background-image: linear-gradient(to top, #061826 0%, #1b5c8d 100%);
@@ -92,7 +107,7 @@ table {
     border-collapse: collapse;
     width: 500px;
     height: 100px;
-    border: 1px solid #18374e ;
+    /* border: 1px solid #18374e ; */
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -103,7 +118,7 @@ tr {
 th,td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #18374e  ;
+    /* border-bottom: 1px solid #18374e  ; */
     /* border-left: 1px solid #18374e  ; */
 }
 
@@ -116,4 +131,20 @@ th {
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; */
+}
+
+tr:hover{
+    background-color: #f5f5f5;
+    transform: scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 768px){
+    .profileimage {
+        width: 500px;
+        height: 500px;
+        top: 0;
+        left: 0;
+        transform: translate(-95%, 150%);
+    }
 }

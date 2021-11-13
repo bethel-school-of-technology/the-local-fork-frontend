@@ -130,7 +130,7 @@ export default class Login extends React.Component {
               type="text"
               value={this.state.city}
               onChange={this.onChangeCity}
-              className="form-control"
+              className="form-control2"
               placeholder="City"
             />
           </div>
@@ -160,7 +160,7 @@ export default class Login extends React.Component {
               type="text"
               value={this.state.tagline}
               onChange={this.onChangeTagline}
-              className="form-control"
+              className="form-control2"
               placeholder="Tagline"
             />
           </div>

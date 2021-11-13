@@ -49,54 +49,25 @@ export default function App() {
 
   const Res = "http://localhost:5000/restaurant/";
 
-  // function displayRestaurantAround(){
-  //   return new Promise ((resolve, reject) => {
-  //     this.service.nearbySearch({
-  //       location: currentUserPosition,
-  //       radius: 5000,
-  //       types: [restaurant]
-  //     }, (res)=>{
-  //       resolve(res);
-  //     })
-  //   })
-  // }
-
   const [allRests, setAllRests] = useState([]);
   // const [lat, setLat] = useState([]);
   // const [long, setLong] = useState([]);
   // console.log(lat)
   // console.log(long)
 
-  // const points = [lat, long]
   const [selectedRes, setSelectedRes] = useState(null);
-  //   console.log(allRests);
 
   useEffect(() => {
     axios.get(Res).then((response) => {
       console.log(response.data.restaurants);
 
       setAllRests(response.data.restaurants);
-      // setLat(response.data.restaurants[0].coordinates[0]);
-      // setLong(response.data.restaurants[0].coordinates[1]);
-
-      // console.log(setLong);
-      // console.log(response.data.restaurants.coordinates);
     });
   }, []);
 
-  // const markerLoop = points.map((point, id)=> {
-  //   return (
-  //     // console.log(point)
-  //   )
-  // })
-
-  //const bounds  = new google.maps.LatLngBounds();
 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
-    //ADDED TWO LINES BELOW FOR 'BOUNDS'
-    // const bounds = new window.google.maps.LatLngBounds();
-    // map.fitBounds(bounds);
     mapRef.current = map;
   }, []);
 
@@ -110,7 +81,6 @@ export default function App() {
 
   return (
     <div>
-      {/* <h1> The Local Fork </h1> */}
 
       <Search panTo={panTo} />
       <Locate panTo={panTo} />
@@ -134,7 +104,7 @@ export default function App() {
               setSelectedRes(res);
             }}
             icon={{
-              url: "/fork-icom.png",
+              url: "/map-marker.png",
               scaledSize: new window.google.maps.Size(40, 40),
             }}
           />
@@ -183,7 +153,7 @@ function Locate({ panTo }) {
         );
       }}
     >
-      <img className="compass" src="compass.png" alt="compass" />
+      <img className="location" src="location.png" alt="location" />
     </button>
   );
 }
@@ -226,7 +196,7 @@ function Search({ panTo }) {
             setValue(e.target.value);
           }}
           disabled={!ready}
-          placeholder="Zoom in to your city"
+          placeholder="Zoom in to your City"
         />
         <ComboboxPopover>
           <ComboboxList>

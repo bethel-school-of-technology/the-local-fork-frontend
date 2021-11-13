@@ -56,7 +56,7 @@ function Home({ restSearchData, typing }) {
                  (
                   <div key={id} className="col-lg-3 col-sm-6">
                     <Figure>
-                      <Link to={`/Restaurants/${data.name}`}>
+                      <Link to={`/Restaurants/${data._id}`}>
                         {data.image?.length > 0 &&
                           <FigureImage
                             width={171}
@@ -72,7 +72,7 @@ function Home({ restSearchData, typing }) {
                         {data.location}
                         {data.hours}
                         <br />
-                        <Link to={`/Restaurants/${data.name}`}>View more</Link>
+                        <Link to={`/Restaurants/${data._id}`}>View more</Link>
                       </FigureCaption>
                     </Figure>
                   </div>

@@ -41,15 +41,14 @@ function Restaurants() {
 
         {data.image?.length > 0 &&
           <FigureImage
-            width={171}
-            height={180}
-            alt="171x180"
             src={data?.image[0]}
-            style={{ width: "20rem" }}
-          />}
+            style={{
+              width: "30rem",
+              marginTop: "5px",
+              marginLeft: "5px"
+            }} />}
 
         <Figure.Caption>
-
           {data.name}
           <br />
           {data.hours} Hours a Day

@@ -48,27 +48,25 @@ function Restaurants() {
           )}
 
           <Figure.Caption>
-            <h1>{data.name}</h1>
+            <h1 className="restName">{data.name}</h1>
             <br />
+            <div className="details">
             <h3>{data.location}</h3>
             <br />
-            <h6>{data.hours} Hours a Day </h6>
-            <br />
-            <h6>{data.rating} Star Rating</h6>
-            <br />
+            </div>
             {reviewData.map((review, id) => {
               return (
                 <div key={id}>
-                  <h3>Your Reviews: </h3>
+                  <h2 className="reviews"> Customer's thoughts </h2>
                   
-                  <h4>{review.name}</h4>
+                  <h4 className="reviewer">{review.name}</h4>
 
-                  <h6>{review.review}</h6>
+                  <h6 className="reviewee">{review.review}</h6>
                   <br />
                 </div>
               );
             })}
-            <Link to={`/reviews/${restId}`} className="btn btn-primary">
+            <Link to={`/reviews/${restId}`} className="btn btn-primary buttons">
               Add/Edit Review
             </Link>
           </Figure.Caption>

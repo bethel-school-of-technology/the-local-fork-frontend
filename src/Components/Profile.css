@@ -61,7 +61,6 @@
   text-align: center;
   font-family: "Alex Brush", cursive;
   font-size: 40px;
-
   background-color: white;
   background-image: linear-gradient(to top, #061826 0%, #1b5c8d 100%);
   background-size: 100%;
@@ -73,10 +72,14 @@
 .resName {
   background: #18374e;
   color: white;
+  font-size: 22px;
+  font-family: "Hiragino Mincho ProN";
+  font-weight: 700;
 }
 
 .review {
-  background: #b8d4e9;
+  font-size: 18px;
+  font-family: "Hiragino Mincho ProN";
 }
 
 table {

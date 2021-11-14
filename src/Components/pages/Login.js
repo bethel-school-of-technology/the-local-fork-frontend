@@ -36,8 +36,6 @@ const Login = ({ history }) => {
       <form onSubmit={signIn}>
         <h1 className="welcome">WELCOME</h1>
         <br />
-        <br />
-        <br />
         <input
           className="textfield"
           type="text"

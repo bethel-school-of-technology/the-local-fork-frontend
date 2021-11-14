@@ -168,5 +168,3 @@ export default [
     ],
   },
 ];
-
-

@@ -22,8 +22,6 @@ import {
 import mapStyles from "../services/mapStyles";
 import "../../../src/index.css";
 
-// import restaurants from "../services/restaurants.json";
-
 const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
@@ -50,10 +48,6 @@ export default function App() {
   const Res = "http://localhost:5000/restaurant/";
 
   const [allRests, setAllRests] = useState([]);
-  // const [lat, setLat] = useState([]);
-  // const [long, setLong] = useState([]);
-  // console.log(lat)
-  // console.log(long)
 
   const [selectedRes, setSelectedRes] = useState(null);
 
@@ -64,7 +58,6 @@ export default function App() {
       setAllRests(response.data.restaurants);
     });
   }, []);
-
 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
@@ -81,7 +74,6 @@ export default function App() {
 
   return (
     <div>
-
       <Search panTo={panTo} />
       <Locate panTo={panTo} />
 
@@ -91,7 +83,6 @@ export default function App() {
         center={center}
         options={options}
         onLoad={onMapLoad}
-        //bounds
       >
         {allRests.map((res) => (
           <Marker
@@ -124,8 +115,9 @@ export default function App() {
               <h2 className="resNameMap">{selectedRes.name}</h2>
               {/* <p>{selectedRes.rating}</p> */}
               <p>{selectedRes.location}</p>
-              {selectedRes.image?.length > 0 && 
-              <img className="resImage" src={selectedRes?.image[0]} alt=""/>}
+              {selectedRes.image?.length > 0 && (
+                <img className="resImage" src={selectedRes?.image[0]} alt="" />
+              )}
             </div>
           </InfoWindow>
         )}

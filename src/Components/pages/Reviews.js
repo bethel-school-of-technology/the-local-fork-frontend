@@ -1,29 +1,18 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "../Review.css";
-
-import { FaStar } from "react-icons/fa";
-
-// import { useState } from "react/cjs/react.development";
 
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
 
-// import Newres from "./Newres";
-// import { Component } from "react";
-
 function Reviews({ history }) {
-  // const [reviewData, setreviewData] = useState([]);
-  //   const [data, setData] = useState([]);
   const { restaurantId } = useParams();
   const [title, setTitle] = useState("");
   const [review, setReview] = useState("");
-  // const [rating, setRating] = useState("");
   const [revId, setRevId] = useState("");
   const userData = JSON.parse(localStorage.getItem("mytoken"));
   const [restaurant, setRestaurant] = useState([]);
@@ -38,7 +27,7 @@ function Reviews({ history }) {
   useEffect(() => {
     // if (signedIn === false) {
     //   history.push("/login");
-    // } else  {
+    // } else {
       axios
         .get(`http://localhost:5000/restaurant/${restaurantId}`)
         .then((res) => {
@@ -52,8 +41,6 @@ function Reviews({ history }) {
           },
         })
         .then((res) => {
-          //Restaurant ID
- 
           console.log(restaurantId);
           if (res.data.reviewData) {
             setTitle(res.data.reviewData.title);
@@ -62,7 +49,7 @@ function Reviews({ history }) {
             console.log(res.data.reviewData);
           }
         });
-      // };
+    // }
   }, [restaurantId]);
 
   const save = () => {
@@ -120,7 +107,6 @@ function Reviews({ history }) {
             type="submit"
             className="subm"
             onClick={save}
-            // onClick={()=>save}
             alert="Thank you!"
           >
             Submit
@@ -138,6 +124,5 @@ function Reviews({ history }) {
     </div>
   );
 }
-
 
 export default Reviews;

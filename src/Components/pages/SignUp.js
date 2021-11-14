@@ -93,7 +93,6 @@ export default class Login extends React.Component {
       <div className="wrapper">
         <form className="form" onSubmit={this.onSubmit}>
           <h2 className="join">Join the Foodies</h2>
-          
           <div className="form-group">
             {/* <label> First Name</label> */}
             <input
@@ -165,14 +164,9 @@ export default class Login extends React.Component {
             />
           </div>
           <div className="form-group">
-            <Button
-              type="submit"
-              value="Login"
-              className="submit"
-            >
+            <Button type="submit" value="Login" className="submit">
               Sign Up
             </Button>
-            {/* <input type="submit" value="Login" className="btn btn-success btn-block" /> */}
           </div>
         </form>
       </div>

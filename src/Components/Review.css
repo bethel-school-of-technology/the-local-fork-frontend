@@ -1,68 +1,67 @@
-.main-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-self: center;
-    margin: 0 auto;
-    width: 600px;
-    height: 60vh;
-    z-index: 1;
-    padding: 0 50px;
-    background-color: white;
-    border-radius: 20px;
-    transform: translateY(20%);
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-self: center;
+  margin: 0 auto;
+  width: 600px;
+  height: 60vh;
+  z-index: 1;
+  padding: 0 50px;
+  background-color: white;
+  border-radius: 20px;
+  transform: translateY(20%);
 }
 
-
 .main-container h2 {
-    font-family: 'Beth Ellen', cursive;
-    text-align: center;
-    color: #061826;
-    padding: 0px 0px 10px 0px;
-    border-bottom: 1px solid silver;
-    font-weight: 500;
+  font-family: "Beth Ellen", cursive;
+  text-align: center;
+  color: #061826;
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid silver;
+  font-weight: 500;
 }
 
 .main-container h5 {
-    font-family: 'Hiragino Mincho ProN';
-    color: #425b5f;
-    padding: 0px 0px 10px 0px;
+  font-family: "Hiragino Mincho ProN";
+  color: #425b5f;
+  padding: 0px 0px 10px 0px;
 }
 
 .main-container h3 {
-    font-family: 'Beth Ellen', cursive;
-    text-align: center;
-    color: #425b5f;
-    padding: 0px 0px 10px 0px;
+  font-family: "Beth Ellen", cursive;
+  text-align: center;
+  color: #425b5f;
+  padding: 0px 0px 10px 0px;
 }
 
 textarea {
-    justify-self: center;
-    font-family: 'Hiragino Mincho ProN';
-    font-size: 30px;
-    color: #061826;
-    border: "1px solid #a9a9a9";
-    border-radius: 20px;
-    width: 500px;
-    margin: "20px 0";
-    min-height: 200px;
-    padding: 20px;
-} 
-
-button.subm {
-   justify-self: center;
-   padding: 10px auto;
-   margin: 10px auto;
-   width: 300px;
-   justify-self: center;
-   transform: translate(35%, 50%);
+  justify-self: center;
+  font-family: "Hiragino Mincho ProN";
+  font-size: 30px;
+  color: #061826;
+  border: "1px solid #a9a9a9";
+  border-radius: 20px;
+  width: 500px;
+  margin: "20px 0";
+  min-height: 200px;
+  padding: 20px;
 }
 
-@media only screen and (max-width: 768px){
-    button {
-        border: "1px solid #a9a9a9";
-        border-radius: 5px;
-        width: 300px;
-        padding: 20px 20px;
-    }
+button.subm {
+  justify-self: center;
+  padding: 10px auto;
+  margin: 10px auto;
+  width: 300px;
+  justify-self: center;
+  transform: translate(35%, 50%);
+}
+
+@media only screen and (max-width: 768px) {
+  button {
+    border: "1px solid #a9a9a9";
+    border-radius: 5px;
+    width: 300px;
+    padding: 20px 20px;
+  }
 }

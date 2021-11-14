@@ -5,7 +5,10 @@
   font-family: "PT Sans", sans-serif;
 }
 
-.home, .get, .map, .login {
+.home,
+.get,
+.map,
+.login {
   background-color: black;
   display: flex;
   height: 90vh;
@@ -66,18 +69,19 @@
   position: relative;
 }
 
-.figure>a {
+.figure > a {
   height: 100%;
   max-width: 50%;
   min-width: 50%;
 }
 
-.figure>a>img {
+.figure > a > img {
   height: auto;
   width: 100%;
   border-radius: 5px 0 0 5px;
 }
 
-h4, h6 {
-  font-family: 'serif';
+h4,
+h6 {
+  font-family: "serif";
 }

@@ -1,15 +1,12 @@
+import React from "react";
 
-import React from 'react';
-
-const DisplaySearch = ({name, review}) => {
-// console.log(serchResults);
-
-    return (
-      <div>
-         <p>{name}</p>
-         <p>{review}</p>
-      </div>
-    )
-}
+const DisplaySearch = ({ name, review }) => {
+  return (
+    <div>
+      <p>{name}</p>
+      <p>{review}</p>
+    </div>
+  );
+};
 
 export default DisplaySearch;

@@ -84,7 +84,7 @@ p {
   width: 200px;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
   .gm-style .gm-style-iw-c {
     display: flex;
     position: fixed;

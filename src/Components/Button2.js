@@ -1,6 +1,10 @@
 import React from "react";
 import Logout from "./pages/Logout";
 
+const STYLES = ["btn--primary", "btn--outline"];
+
+const SIZES = ["btn--medium", "btn--large"];
+
 export const Button2 = ({
   children,
   type,
@@ -8,5 +12,15 @@ export const Button2 = ({
   buttonStyle,
   buttonSize,
 }) => {
-  return <Logout />;
+
+
+  const checkButtontStyle = STYLES.includes(buttonStyle)
+  ? buttonStyle
+  : STYLES[0];
+
+const checkButtontSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+
+
+  return <Logout 
+  />;
 };

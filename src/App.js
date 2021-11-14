@@ -11,8 +11,6 @@ import Reviews from "./Components/pages/Reviews";
 import Login from "./Components/pages/Login";
 import Home from "./Components/pages/Home";
 import Profile from "./Components/pages/ProfilePage";
-
-
 import Logout from "./Components/pages/Logout";
 import Restaurants from "./Components/pages/Restaurants";
 
@@ -58,7 +56,6 @@ function App() {
           findRestaurant={findRestaurant}
           handleSubmit={handleSubmit}
         />
-
         <Switch>
           <Route path="/Login" exact component={Login} />
           <Route path="/profile" exact component={Profile} />
@@ -73,7 +70,6 @@ function App() {
             exact
             component={Restaurants}
           />
-
           <Route path="/logout" exact component={Logout} />
         </Switch>
       </Router>

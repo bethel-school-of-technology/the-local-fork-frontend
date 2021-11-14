@@ -4,7 +4,6 @@ body {
   font-family: Hiragino Mincho ProN;
   background: linear-gradient(100deg, #dde0c6, #66888d);
   height: 100vh;
-  /* overflow: hidden; */
 }
 
 .login {
@@ -26,11 +25,9 @@ body {
 
 form .textfield {
   position: relative;
-  /* border-bottom: 2px solid #adadaa; */
   width: 300px;
   margin: 30px 0;
   height: 50px;
-  /* padding: 0 5px; */
   padding: 14px 10px;
   font-size: 16px;
   transition: 0.25s;
@@ -90,16 +87,16 @@ button.submit:hover {
 }
 
 .welcome {
-    font-family: 'Beth Ellen', cursive;
-    text-align: center;
-    color: #425b5f;
-    padding: 0px 0px 10px 0px;
-    border-bottom: 1px solid silver;
-    left: 30%;
-    font-weight: 500;
+  font-family: "Beth Ellen", cursive;
+  text-align: center;
+  color: #425b5f;
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid silver;
+  left: 30%;
+  font-weight: 500;
 }
 
 .errormessage {
-    color: red;
-    text-align: center;  
+  color: red;
+  text-align: center;
 }

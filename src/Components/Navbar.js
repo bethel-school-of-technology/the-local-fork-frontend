@@ -40,7 +40,8 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   style={{
                     width: "90px",
                     marginLeft: "100px",
-                  }}/>
+                  }}
+                />
               </Link>
 
               {/* Responsive Menu Icon */}
@@ -49,23 +50,26 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
               </div>
 
               <ul className={click ? "nav-menu active" : "nav-menu"}>
-                {/* Home Icon */}
+                {/* Sign Up Icon */}
                 <li className="nav-item">
-                  <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>
-                    <i className="fas fa-home"></i>
-                  </Link>
-                </li>
-
-                {/* Favorites Icon */}
-                {/* <li className="nav-item">
                   <Link
-                    to="/favorites"
+                    to="/login"
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
-                    <i className="far fa-heart"></i>
+                    <i className="fas fa-sign-in-alt"></i>
                   </Link>
-                </li> */}
+                </li>
+                {/* Home Icon */}
+                <li className="nav-item">
+                  <Link
+                    to="/profile"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    <i className="far fa-user"></i>
+                  </Link>
+                </li>
 
                 {/* Map Icon */}
                 <li className="nav-item">
@@ -78,19 +82,10 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   </Link>
                 </li>
 
-                {/* Sign Up Icon */}
-                <li className="nav-item">
-                  <Link
-                    to="/login"
-                    className="nav-links"
-                    onClick={closeMobileMenu}
-                  >
-                    <i className="far fa-user"></i>
-                  </Link>
-                </li>
-
                 {/* Logout Icon */}
-                <li className="nav-item">{button && <Button2></Button2>}</li>
+                <li className="nav-item" onClick={closeMobileMenu}>
+                  {button && <Button2></Button2>}
+                </li>
               </ul>
             </div>
           </Col>

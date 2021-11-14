@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Figure from "react-bootstrap/Figure";
 import FigureImage from "react-bootstrap/FigureImage";
 import FigureCaption from "react-bootstrap/FigureCaption";
-import { Data } from "@react-google-maps/api";
 
 function Home({ restSearchData, typing }) {
   const [resData, setData] = useState([]);
@@ -20,7 +19,6 @@ function Home({ restSearchData, typing }) {
   return (
     <div>
       {typing ? (
-        // Search Typing
         <div>
           <Row className="container">
             {restSearchData.map((data, id) => (
@@ -33,22 +31,18 @@ function Home({ restSearchData, typing }) {
                   </Link>
 
                   <FigureCaption>
-                      <h4> {data.name} </h4>
-                     
-                      <h6>{data.location} </h6>
-                     
-                      {data.hours} Hours a Day
-                      <br />
-                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
-                    </FigureCaption>
-                
+                    <h4> {data.name} </h4>
+                    <h6>{data.location} </h6>
+                    {data.hours} Hours a Day
+                    <br />
+                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                  </FigureCaption>
                 </Figure>
               </div>
             ))}
           </Row>
         </div>
       ) : (
-        // Search Button
         <div>
           <Row>
             {resData.map((data, id) => (
@@ -60,23 +54,16 @@ function Home({ restSearchData, typing }) {
                     )}
                   </Link>
 
-                 
-
-                    <FigureCaption>
-                      <h4> {data.name} </h4>
-                     
-                      <h6>{data.location}</h6>
-                    
-                      {data.hours} Hours a Day
-                      <br />
-                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
-                    </FigureCaption>
-                   
-                  </Figure>
-                </div>
-              )
-
-            )}
+                  <FigureCaption>
+                    <h4> {data.name} </h4>
+                    <h6>{data.location}</h6>
+                    {data.hours} Hours a Day
+                    <br />
+                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                  </FigureCaption>
+                </Figure>
+              </div>
+            ))}
           </Row>
         </div>
       )}

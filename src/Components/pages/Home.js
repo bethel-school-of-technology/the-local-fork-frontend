@@ -14,7 +14,6 @@ function Home({ restSearchData, typing }) {
   useEffect(() => {
     axios.get(`http://localhost:5000/restaurant/`).then((res) => {
       setData(res.data.restaurants);
-      console.log(res.data.restaurants);
     });
   }, []);
 
@@ -34,14 +33,15 @@ function Home({ restSearchData, typing }) {
                   </Link>
 
                   <FigureCaption>
-                    <h4> {data.name} </h4>
-
-                    <h6>{data.location} </h6>
-
-                    {data.hours}
-                    <br />
-                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
-                  </FigureCaption>
+                      <h4> {data.name} </h4>
+                     
+                      <h6>{data.location} </h6>
+                     
+                      {data.hours} Hours a Day
+                      <br />
+                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                    </FigureCaption>
+                
                 </Figure>
               </div>
             ))}
@@ -60,18 +60,23 @@ function Home({ restSearchData, typing }) {
                     )}
                   </Link>
 
-                  <FigureCaption>
-                    <h4> {data.name} </h4>
+                 
 
-                    <h6>{data.location}</h6>
+                    <FigureCaption>
+                      <h4> {data.name} </h4>
+                     
+                      <h6>{data.location}</h6>
+                    
+                      {data.hours} Hours a Day
+                      <br />
+                      <Link to={`/Restaurants/${data._id}`}>View more</Link>
+                    </FigureCaption>
+                   
+                  </Figure>
+                </div>
+              )
 
-                    {data.hours}
-                    <br />
-                    <Link to={`/Restaurants/${data._id}`}>View more</Link>
-                  </FigureCaption>
-                </Figure>
-              </div>
-            ))}
+            )}
           </Row>
         </div>
       )}

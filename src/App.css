@@ -73,7 +73,11 @@
 }
 
 .figure>a>img {
-  height: 100%;
+  height: auto;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+}
+
+h4, h6 {
+  font-family: 'serif';
 }

@@ -54,10 +54,12 @@ function Restaurants() {
             <h3>{data.location}</h3>
             <br />
             </div>
+            <h2 className="reviews"> Customer's thoughts </h2>
+            
             {reviewData.map((review, id) => {
               return (
                 <div key={id}>
-                  <h2 className="reviews"> Customer's thoughts </h2>
+                  
                   
                   <h4 className="reviewer">{review.name}</h4>
 

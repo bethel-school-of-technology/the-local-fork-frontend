@@ -65,3 +65,15 @@ button.form-control:hover {
   color: #425b5f;
   padding: 0px 0px 20px 0px;
 }
+
+.lg {
+  /* align-items: center; */
+  /* justify-items: center; */
+  text-align: center;
+  font-family: "Hiragino Mincho ProN";
+  font-weight: 700;
+  margin: 0 auto;
+  transform: translate(0%, 250%);
+  font-size: 18px;
+  color: #425b5f;
+}

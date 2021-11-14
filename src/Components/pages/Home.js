@@ -57,7 +57,6 @@ function Home({ restSearchData, typing }) {
                   <FigureCaption>
                     <h4> {data.name} </h4>
                     <h6>{data.location}</h6>
-                    <h6>{data.hours} Hours a Day</h6>
                     
                     <Link to={`/Restaurants/${data._id}`}>View more</Link>
                   </FigureCaption>

@@ -28,17 +28,17 @@ function Reviews({ history }) {
   const userData = JSON.parse(localStorage.getItem("mytoken"));
   const [restaurant, setRestaurant] = useState([]);
   const [signedIn, setSignedIn] = useState(false);
-  const token = localStorage.getItem("mytoken");
-  if (token !== null) {
-    setSignedIn(true);
-  }
+  // const token = localStorage.getItem("mytoken");
+  // if (token !== null) {
+  //   setSignedIn(true);
+  // }
 
   console.log(revId);
 
   useEffect(() => {
-    if (signedIn === false) {
-      history.push("/login");
-    } else {
+    // if (signedIn === false) {
+    //   history.push("/login");
+    // } else  {
       axios
         .get(`http://localhost:5000/restaurant/${restaurantId}`)
         .then((res) => {
@@ -53,7 +53,7 @@ function Reviews({ history }) {
         })
         .then((res) => {
           //Restaurant ID
-
+ 
           console.log(restaurantId);
           if (res.data.reviewData) {
             setTitle(res.data.reviewData.title);
@@ -62,7 +62,7 @@ function Reviews({ history }) {
             console.log(res.data.reviewData);
           }
         });
-    }
+      // };
   }, [restaurantId]);
 
   const save = () => {

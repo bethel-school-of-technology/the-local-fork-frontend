@@ -16,7 +16,7 @@ function Restaurants() {
   const [restId, setRestId] = useState("");
   console.log(restId);
   const [reviewData, setReviewData] = useState([]);
-  const [signedIn, setSignedIn] = useState(false);
+  // const [signedIn, setSignedIn] = useState(false);
   //console.log(reviewData);
 
   useEffect(() => {
@@ -71,6 +71,7 @@ function Restaurants() {
             );
           })}
           <Link to={`/reviews/${restId}`} className="btn btn-primary">Add/Edit Review</Link>
+          
         </Figure.Caption>
       </Figure>
 

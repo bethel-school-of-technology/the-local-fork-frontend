@@ -43,26 +43,25 @@ function Restaurants() {
 
         {data.image?.length > 0 &&
           <FigureImage
-          className="image"
-            width={171}
-            height={180}
-            alt="171x180"
+
             src={data?.image[0]}
-            style={{ width: "20rem" }}
-          />}
+            style={{
+              width: "30rem",
+              marginTop: "5px",
+              marginLeft: "5px"
+            }} />}
 
         <Figure.Caption>
 
-          <div><h1>{data.name}</h1></div>
-          
-          <br /><br/>
-          {/* {data.hours} Hours a Day
-          <br /> */}
-          <p>Address: {data.location}</p>
-          <br /><br />
-          <h2>What diners thought</h2>
-          {/* Rating {data.rating} stars
-          <br /> */}
+          {data.name}
+          <br />
+          {data.hours} Hours a Day
+          <br />
+          Address: {data.location}
+          <br />
+          Rating {data.rating} stars
+          <br />
+
           {reviewData.map((review, id) => {
             return (
               <div key={id}>

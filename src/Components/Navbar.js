@@ -40,8 +40,7 @@ function Navbar({ handleSubmit, query, findRestaurant }) {
                   style={{
                     width: "90px",
                     marginLeft: "100px",
-                  }}
-                />
+                  }}/>
               </Link>
 
               {/* Responsive Menu Icon */}

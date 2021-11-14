@@ -11,7 +11,6 @@ import Reviews from "./Components/pages/Reviews";
 import Login from "./Components/pages/Login";
 import Home from "./Components/pages/Home";
 import Profile from "./Components/pages/ProfilePage";
-import Favorites from "./Components/pages/Favorites";
 
 
 import Logout from "./Components/pages/Logout";
@@ -69,7 +68,6 @@ function App() {
           <Route path="/" exact>
             <Home restSearchData={searchResults} typing={isTyping} />
           </Route>
-          <Route path="/favorites" exact component={Favorites} />
           <Route
             path="/Restaurants/:restaurantId"
             exact

@@ -120,6 +120,7 @@ function Reviews({ history }) {
             type="submit"
             className="subm"
             onClick={save}
+            // onClick={()=>save}
             alert="Thank you!"
           >
             Submit
@@ -138,14 +139,5 @@ function Reviews({ history }) {
   );
 }
 
-const styles = {
-  input: {
-    border: "1px solid #a9a9a9",
-    borderRadius: 5,
-    width: 300,
-    margin: "10px 0",
-    minHeight: 10,
-    padding: 10,
-  },
-};
+
 export default Reviews;

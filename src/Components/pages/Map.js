@@ -21,6 +21,7 @@ import {
 } from "@reach/combobox";
 import mapStyles from "../services/mapStyles";
 import "../../../src/index.css";
+import { Link } from "react-router-dom";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -112,7 +113,9 @@ export default function App() {
             }}
           >
             <div>
+              <Link to={`/Restaurants/${selectedRes._id}`}>
               <h2 className="resNameMap">{selectedRes.name}</h2>
+              </Link>
               {/* <p>{selectedRes.rating}</p> */}
               <p>{selectedRes.location}</p>
               {selectedRes.image?.length > 0 && (

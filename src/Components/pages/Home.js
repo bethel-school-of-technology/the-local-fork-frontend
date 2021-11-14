@@ -8,7 +8,6 @@ import FigureImage from "react-bootstrap/FigureImage";
 import FigureCaption from "react-bootstrap/FigureCaption";
 import { Data } from "@react-google-maps/api";
 
-
 function Home({ restSearchData, typing }) {
   const [resData, setData] = useState([]);
 
@@ -21,18 +20,16 @@ function Home({ restSearchData, typing }) {
   return (
     <div>
       {typing ? (
-
         // Search Typing
         <div>
           <Row className="container">
             {restSearchData.map((data, id) => (
               <div key={id} className="" id="card-wrapper">
-
                 <Figure className="card-con">
                   <Link to={`/Restaurants/${data._id}`}>
-                    {data.image?.length > 0 &&
-                      <FigureImage
-                        src={data?.image[0]} />}
+                    {data.image?.length > 0 && (
+                      <FigureImage src={data?.image[0]} />
+                    )}
                   </Link>
 
                   <FigureCaption>
@@ -50,22 +47,20 @@ function Home({ restSearchData, typing }) {
             ))}
           </Row>
         </div>
-
       ) : (
-
         // Search Button
         <div>
           <Row>
-
             {resData.map((data, id) => (
               <div key={id} className="" id="card-wrapper">
-                  
-                  <Figure className="card-con">
-                    <Link to={`/Restaurants/${data._id}`}>
-                      {data.image?.length > 0 &&
-                        <FigureImage
-                          src={data?.image[0]} />}
-                    </Link>
+                <Figure className="card-con">
+                  <Link to={`/Restaurants/${data._id}`}>
+                    {data.image?.length > 0 && (
+                      <FigureImage src={data?.image[0]} />
+                    )}
+                  </Link>
+
+                 
 
                     <FigureCaption>
                       <h4> {data.name} </h4>
@@ -76,6 +71,7 @@ function Home({ restSearchData, typing }) {
                       <br />
                       <Link to={`/Restaurants/${data._id}`}>View more</Link>
                     </FigureCaption>
+                   
                   </Figure>
                 </div>
               )

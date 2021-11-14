@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import { Figure } from "react-bootstrap";
 import FigureImage from "react-bootstrap/esm/FigureImage";
 import { Link } from "react-router-dom";
+import "../Restaurant.css";
 
 
 function Restaurants() {
@@ -32,15 +33,17 @@ function Restaurants() {
         console.log(reviewDataFound);
         setReviewData(reviewDataFound.data.reviewData);
       });
+      //setSignedIn = localStorage.getItem('myToken')
   }, [restaurantId]);
 
   return (
-    <div>
-
+    <div className="container">
+      <div className="main-content">
       <Figure>
 
         {data.image?.length > 0 &&
           <FigureImage
+
             src={data?.image[0]}
             style={{
               width: "30rem",
@@ -49,6 +52,7 @@ function Restaurants() {
             }} />}
 
         <Figure.Caption>
+
           {data.name}
           <br />
           {data.hours} Hours a Day
@@ -57,6 +61,7 @@ function Restaurants() {
           <br />
           Rating {data.rating} stars
           <br />
+
           {reviewData.map((review, id) => {
             return (
               <div key={id}>
@@ -65,13 +70,16 @@ function Restaurants() {
                 <h5>{review.review}</h5>
 
               </div>
+              
             );
           })}
           <Link to={`/reviews/${restId}`} className="btn btn-primary">Add/Edit Review</Link>
+          
         </Figure.Caption>
       </Figure>
 
 
+    </div>
     </div>
   );
 }

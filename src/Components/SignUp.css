@@ -69,11 +69,14 @@ button.form-control:hover {
 .lg {
   /* align-items: center; */
   /* justify-items: center; */
+  display: block;
   text-align: center;
   font-family: "Hiragino Mincho ProN";
   font-weight: 700;
-  margin: 0 auto;
-  transform: translate(0%, 250%);
+  top: 90%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, 200%);
   font-size: 18px;
   color: #425b5f;
 }

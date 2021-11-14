@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "../SignUp.css";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -167,6 +168,10 @@ export default class Login extends React.Component {
             <Button type="submit" value="Login" className="submit">
               Sign Up
             </Button>
+          </div>
+          
+          <div className="lg">
+          Signed up? <a href="/login">Login</a>{" "}
           </div>
         </form>
       </div>

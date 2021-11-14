@@ -34,7 +34,7 @@ const Login = ({ history }) => {
   return (
     <div className="login">
       <form onSubmit={signIn}>
-        <h1 className="welcome">Welcome</h1>
+        <h1 className="welcome">WELCOME</h1>
         <br />
         <br />
         <br />
@@ -53,11 +53,11 @@ const Login = ({ history }) => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-
+        <p className="errormessage">{message}</p>
         <Button type="submit" className="submit">
           {" "}
-          {message}
-          Sign In
+          
+          Sign In  
         </Button>
 
         <div className="signuplink">
